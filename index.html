@@ -10,7 +10,17 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
   <style>
-    /* Reset & Estilos Básicos */
+    /* Variáveis e Configurações Básicas */
+    :root {
+      --bg-dark: #222;
+      --bg-darker: #111;
+      --text-light: #fff;
+      --text-muted: #ccc;
+      --accent: #0071e3;
+      --header-height: 70px;
+    }
+    
+    /* Reset e Estilos Globais */
     * {
       margin: 0;
       padding: 0;
@@ -18,53 +28,52 @@
     }
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #222; /* Fundo cinza escuro */
-      color: #fff;
+      background-color: var(--bg-dark);
+      color: var(--text-light);
       line-height: 1.6;
       scroll-behavior: smooth;
       overflow-x: hidden;
+      padding-top: var(--header-height); /* Para não ficar oculto pelo header fixo */
     }
     a {
       text-decoration: none;
       color: inherit;
     }
-
+    
     /* Cabeçalho */
     header {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
+      height: var(--header-height);
       background: rgba(0, 0, 0, 0.85);
       backdrop-filter: blur(10px);
-      padding: 15px 30px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
+      padding: 0 30px;
       z-index: 1000;
     }
     .logo {
       font-size: 1.8em;
       font-weight: 700;
-      color: #fff;
+      color: var(--text-light);
     }
     nav ul {
-      display: flex;
       list-style: none;
-    }
-    nav ul li {
-      margin-left: 20px;
+      display: flex;
+      gap: 20px;
     }
     nav ul li a {
       font-size: 1em;
-      color: #fff;
-      padding: 5px;
+      color: var(--text-light);
       transition: color 0.3s;
     }
     nav ul li a:hover {
-      color: #0071e3;
+      color: var(--accent);
     }
-
+    
     /* Seção Hero */
     .hero {
       height: 100vh;
@@ -76,15 +85,11 @@
       text-align: center;
       padding: 20px;
     }
-    .hero::after {
+    .hero::before {
       content: "";
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      inset: 0;
       background: rgba(0, 0, 0, 0.5);
-      z-index: 1;
     }
     .hero-content {
       position: relative;
@@ -106,25 +111,24 @@
     .hero button {
       padding: 12px 30px;
       font-size: 1.2em;
-      background: linear-gradient(135deg, #0071e3, #005bb5);
-      color: #fff;
+      background: linear-gradient(135deg, var(--accent), #005bb5);
+      color: var(--text-light);
       border: none;
       border-radius: 50px;
       cursor: pointer;
-      transition: background 0.3s ease, transform 0.3s ease;
+      transition: background 0.3s, transform 0.3s;
     }
     .hero button:hover {
-      background: linear-gradient(135deg, #005bb5, #0071e3);
+      background: linear-gradient(135deg, #005bb5, var(--accent));
       transform: scale(1.05);
     }
-    
-    /* Bloco de Destaques com Ícones na Primeira Seção */
+    /* Bloco de Destaques (Ícones) na Seção Hero */
     .features {
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
       gap: 40px;
       margin-top: 40px;
-      flex-wrap: wrap;
     }
     .feature-item {
       text-align: center;
@@ -132,7 +136,7 @@
     }
     .feature-item i {
       font-size: 3em;
-      color: #0071e3;
+      color: var(--accent);
       margin-bottom: 10px;
     }
     .feature-item h4 {
@@ -141,17 +145,20 @@
     }
     .feature-item p {
       font-size: 0.9em;
-      color: #ccc;
+      color: var(--text-muted);
     }
-
+    
     /* Seções de Conteúdo */
+    main {
+      /* Todas as seções ficam dentro do main */
+    }
     section {
-      padding: 100px 20px;
+      padding: 80px 20px;
       max-width: 1200px;
       margin: 0 auto;
       opacity: 0;
       transform: translateY(20px);
-      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      transition: opacity 0.8s, transform 0.8s;
     }
     section.visible {
       opacity: 1;
@@ -160,14 +167,10 @@
     section h2 {
       font-size: 2.5em;
       margin-bottom: 20px;
-      color: #0071e3;
+      color: var(--accent);
       text-align: center;
       position: relative;
       padding-bottom: 10px;
-    }
-    section h2 i {
-      margin-right: 10px;
-      color: #0071e3;
     }
     section h2::after {
       content: "";
@@ -177,7 +180,7 @@
       transform: translateX(-50%);
       width: 60px;
       height: 3px;
-      background: #0071e3;
+      background: var(--accent);
       border-radius: 3px;
     }
     .section-content {
@@ -187,57 +190,81 @@
       margin: 0 auto;
       text-align: justify;
     }
-    .section-content p {
+    .section-content p,
+    .section-content li {
       margin-bottom: 15px;
     }
     .section-content ul {
       list-style: disc inside;
-      margin-bottom: 15px;
-    }
-    .section-content li {
-      margin-bottom: 10px;
     }
     .section-content h3 {
       font-size: 1.5em;
       margin: 20px 0 10px;
-      color: #0071e3;
+      color: var(--accent);
     }
-
+    
     /* Rodapé */
     footer {
-      background: #111;
-      color: #ccc;
+      background: var(--bg-darker);
+      color: var(--text-muted);
       text-align: center;
       padding: 20px;
       font-size: 0.9em;
     }
-
-    /* Animação Fade In Up */
+    
+    /* Animação: Fade In Up */
     @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
-
+    
     /* Responsividade */
     @media (max-width: 768px) {
-      .hero h1 { font-size: 2.5em; }
-      nav ul li { margin-left: 10px; }
-      section h2 { font-size: 2em; }
-      .section-content { font-size: 0.95em; }
-      .features { gap: 20px; }
+      .hero h1 {
+        font-size: 2.5em;
+      }
+      nav ul {
+        gap: 10px;
+      }
+      section h2 {
+        font-size: 2em;
+      }
+      .section-content {
+        font-size: 0.95em;
+      }
+      .features {
+        gap: 20px;
+      }
     }
     @media (max-width: 480px) {
-      header { flex-direction: column; }
-      nav ul { flex-wrap: wrap; justify-content: center; }
-      .hero h1 { font-size: 2em; }
-      .hero p { font-size: 1em; }
-      .hero button { font-size: 1em; }
+      header {
+        flex-direction: column;
+        padding: 10px;
+        height: auto;
+      }
+      nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .hero h1 {
+        font-size: 2em;
+      }
+      .hero p {
+        font-size: 1em;
+      }
+      .hero button {
+        font-size: 1em;
+      }
     }
   </style>
 </head>
 <body>
-  
-  <!-- Cabeçalho -->
   <header>
     <div class="logo">Mcastro Consultoria</div>
     <nav>
@@ -250,149 +277,148 @@
       </ul>
     </nav>
   </header>
-
-  <!-- Seção Hero -->
-  <section class="hero" id="home">
-    <div class="hero-content">
-      <h1>Assistência Técnica para Cultivo de Maracujá</h1>
-      <p>Consultoria Agronômica Especializada para otimizar processos produtivos e promover sustentabilidade.</p>
-      <button onclick="document.getElementById('introducao').scrollIntoView({ behavior: 'smooth' })">Saiba Mais</button>
-      <!-- Bloco de ícones (Destaques) -->
-      <div class="features">
-        <div class="feature-item">
-          <i class="fa-solid fa-chart-line"></i>
-          <h4>Produtividade</h4>
-          <p>Maximize o rendimento por hectare.</p>
-        </div>
-        <div class="feature-item">
-          <i class="fa-solid fa-leaf"></i>
-          <h4>Sustentabilidade</h4>
-          <p>Métodos ecológicos e inovadores.</p>
-        </div>
-        <div class="feature-item">
-          <i class="fa-solid fa-tools"></i>
-          <h4>Suporte Técnico</h4>
-          <p>Acompanhamento contínuo e especializado.</p>
+  <main>
+    <!-- Seção Hero com Destaques -->
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <h1>Assistência Técnica para Cultivo de Maracujá</h1>
+        <p>Consultoria Agronômica Especializada para otimizar processos produtivos e promover sustentabilidade.</p>
+        <button onclick="document.getElementById('introducao').scrollIntoView({ behavior: 'smooth' })">Saiba Mais</button>
+        <div class="features">
+          <div class="feature-item">
+            <i class="fa-solid fa-chart-line"></i>
+            <h4>Produtividade</h4>
+            <p>Maximize o rendimento por hectare.</p>
+          </div>
+          <div class="feature-item">
+            <i class="fa-solid fa-leaf"></i>
+            <h4>Sustentabilidade</h4>
+            <p>Métodos ecológicos e inovadores.</p>
+          </div>
+          <div class="feature-item">
+            <i class="fa-solid fa-tools"></i>
+            <h4>Suporte Técnico</h4>
+            <p>Acompanhamento contínuo e especializado.</p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- Introdução -->
-  <section id="introducao">
-    <h2><i class="fa-solid fa-info-circle"></i>Introdução</h2>
-    <div class="section-content">
-      <p><strong>Objetivo Geral do Projeto:</strong> Desenvolver e implementar uma consultoria agronômica especializada para o cultivo de maracujá, visando otimizar os processos produtivos, aumentar a produtividade e promover a sustentabilidade econômica e ambiental para os produtores.</p>
-      <p><strong>Importância da Consultoria Agronômica:</strong></p>
-      <ul>
-        <li><strong>Melhoria na Produtividade:</strong> Aplicação de práticas técnicas para maximizar o rendimento por hectare.</li>
-        <li><strong>Manejo Eficiente:</strong> Adequação do manejo agrícola com base em análises de solo, clima e escolha de cultivares adaptadas.</li>
-        <li><strong>Sustentabilidade:</strong> Adoção de métodos de cultivo que promovam a preservação dos recursos naturais e a redução do impacto ambiental.</li>
-        <li><strong>Capacitação dos Produtores:</strong> Transferência de conhecimentos técnicos que possibilitem a tomada de decisões embasadas durante todo o ciclo produtivo.</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Objetivos Específicos -->
-  <section id="objetivos">
-    <h2><i class="fa-solid fa-bullseye"></i>Objetivos Específicos</h2>
-    <div class="section-content">
-      <p><strong>Seleção da Área de Plantio:</strong> Identificar e avaliar regiões com clima, topografia e histórico de uso favoráveis ao cultivo de maracujá.</p>
-      <p><strong>Análise de Solo:</strong> Realizar a coleta de amostras e a análise de parâmetros essenciais (pH, nutrientes, matéria orgânica, etc.) para definir as correções e adubações necessárias.</p>
-      <p><strong>Escolha das Cultivares:</strong> Selecionar variedades de maracujá que apresentem alta produtividade, resistência a pragas e doenças e adaptação às condições regionais e demandas de mercado.</p>
-      <p><strong>Definição da Época e Espaçamento de Plantio:</strong> Determinar o melhor período para o plantio e estabelecer o espaçamento ideal para maximizar a eficiência produtiva e facilitar as práticas de manejo.</p>
-      <p><strong>Manejo de Pragas e Doenças:</strong> Estabelecer um programa integrado de controle fitossanitário, com monitoramento e ações preventivas e corretivas.</p>
-      <p><strong>Suporte Técnico Continuado:</strong> Acompanhar os produtores durante todo o ciclo da cultura, oferecendo orientações técnicas e ajustes necessários na gestão agronômica.</p>
-    </div>
-  </section>
-
-  <!-- Metodologia -->
-  <section id="metodologia">
-    <h2><i class="fa-solid fa-flask"></i>Metodologia</h2>
-    <div class="section-content">
-      <h3>Análise da Área de Cultivo</h3>
-      <p><strong>Critérios para Seleção:</strong></p>
-      <ul>
-        <li><strong>Clima:</strong> Verificar regime de chuvas, temperatura e índices pluviométricos.</li>
-        <li><strong>Topografia:</strong> Analisar a inclinação do terreno, drenagem e facilidade de manejo.</li>
-        <li><strong>Histórico de Uso:</strong> Avaliar a produtividade anterior e possíveis problemas decorrentes de uso inadequado ou contaminação do solo.</li>
-      </ul>
-      <h3>Coleta e Análise de Solo</h3>
-      <p><strong>Processo Técnico de Amostragem:</strong></p>
-      <ul>
-        <li>Definir pontos de coleta representativos distribuídos uniformemente pela área.</li>
-        <li>Coletar amostras em profundidades padronizadas (0-20 cm ou conforme recomendação técnica).</li>
-      </ul>
-      <p><strong>Parâmetros Avaliados:</strong></p>
-      <ul>
-        <li>pH, teores de macro e micronutrientes (N, P, K, Ca, Mg, S, B, Zn, Fe, etc.).</li>
-        <li>Matéria orgânica e capacidade de troca catiônica (CTC).</li>
-      </ul>
-      <h3>Escolha das Cultivares</h3>
-      <p><strong>Critérios de Seleção:</strong></p>
-      <ul>
-        <li><strong>Produtividade:</strong> Variedades com histórico de alto rendimento.</li>
-        <li><strong>Resistência:</strong> Cultivares que apresentem tolerância a pragas, doenças e condições climáticas adversas.</li>
-        <li><strong>Mercado:</strong> Adequação das frutas para o consumo in natura ou processamento, conforme demanda do mercado.</li>
-        <li><strong>Adaptação Climática:</strong> Escolha de variedades testadas e aprovadas na região.</li>
-      </ul>
-      <h3>Manejo da Cultura</h3>
-      <p><strong>Adubação:</strong> Planejamento de adubações baseado nas análises de solo e necessidades nutricionais da planta, com cronograma de fertilizações considerando doses e periodicidade.</p>
-      <p><strong>Irrigação:</strong> Definição do método (gotejamento, aspersão, etc.) e dos horários ideais para minimizar perdas e maximizar a eficiência do uso da água.</p>
-      <p><strong>Poda:</strong> Estabelecimento de técnicas de poda que estimulem a renovação da planta e melhorem a aeração e luminosidade.</p>
-      <p><strong>Controle Fitossanitário:</strong> Implementação de um programa integrado de manejo de pragas e doenças, com monitoramento constante, utilização de agentes biológicos e, quando necessário, aplicação racional de defensivos.</p>
-      <h3>Monitoramento e Avaliação</h3>
-      <p><strong>Acompanhamento Técnico:</strong> Realização de visitas periódicas aos produtores para avaliação das práticas de manejo e dos indicadores agronômicos.</p>
-      <p><strong>Indicadores de Sucesso:</strong> Produtividade por hectare, qualidade dos frutos, redução na incidência de pragas e doenças e eficiência no uso dos insumos.</p>
-    </div>
-  </section>
-
-  <!-- Plano de Ação -->
-  <section id="plano-de-acao">
-    <h2><i class="fa-solid fa-tasks"></i>Plano de Ação</h2>
-    <div class="section-content">
-      <h3>Cronograma de Atividades</h3>
-      <p><strong>Visitas Técnicas:</strong></p>
-      <ul>
-        <li><strong>Iniciação:</strong> Visita semanal nas primeiras 2 semanas pós-implantação.</li>
-        <li><strong>Manutenção:</strong> Visitas quinzenais nos três primeiros meses, ajustáveis conforme a necessidade do produtor.</li>
-        <li><strong>Avaliação Sazonal:</strong> Visitas mensais durante a safra para monitoramento dos indicadores.</li>
-      </ul>
-      <h3>Capacitação dos Produtores</h3>
-      <p><strong>Workshops e Treinamentos:</strong> Realização de encontros técnicos para treinamento sobre manejo integrado, análise de solo, técnicas de irrigação e controle fitossanitário.</p>
-      <p><strong>Material Didático:</strong> Distribuição de apostilas, vídeos e manuais práticos com os tópicos técnicos e melhores práticas.</p>
-      <p><strong>Plataforma de Suporte:</strong> Criação de um canal de comunicação (ex.: grupo de WhatsApp ou fórum online) para esclarecimento de dúvidas e troca de experiências.</p>
-    </div>
-  </section>
-
-  <!-- Resultados e Indicadores -->
-  <section id="resultados">
-    <h2><i class="fa-solid fa-chart-line"></i>Resultados e Indicadores de Sucesso</h2>
-    <div class="section-content">
-      <h3>Resultados Esperados</h3>
-      <ul>
-        <li><strong>Aumento da Produtividade:</strong> Melhoria no rendimento por hectare e na qualidade dos frutos, resultando em maior rentabilidade.</li>
-        <li><strong>Redução de Perdas:</strong> Diminuição significativa da incidência de pragas e doenças, reduzindo perdas de produção.</li>
-        <li><strong>Otimização no Uso de Insumos:</strong> Uso racional e eficiente de fertilizantes e defensivos, com base em análises técnicas.</li>
-        <li><strong>Capacitação dos Produtores:</strong> Produtores mais informados e preparados para adotar boas práticas agrícolas.</li>
-      </ul>
-      <h3>Indicadores de Sucesso</h3>
-      <ul>
-        <li><strong>Produtividade:</strong> Medida em kg ou toneladas por hectare, comparando dados pré e pós-implantação.</li>
-        <li><strong>Qualidade dos Frutos:</strong> Parâmetros definidos pelo mercado (tamanho, cor, teor de polpa, etc.).</li>
-        <li><strong>Redução na Incidência de Pragas/Doenças:</strong> Percentual de diminuição de ocorrências, medido por registros de campo.</li>
-        <li><strong>Uso Eficiente de Insumos:</strong> Relação custo-benefício e diminuição de desperdícios, acompanhada por análises técnicas.</li>
-        <li><strong>Satisfação dos Produtores:</strong> Avaliações qualitativas e quantitativas da eficácia da consultoria.</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Rodapé -->
+    </section>
+    
+    <!-- Seção: Introdução -->
+    <section id="introducao">
+      <h2><i class="fa-solid fa-info-circle"></i>Introdução</h2>
+      <div class="section-content">
+        <p><strong>Objetivo Geral do Projeto:</strong> Desenvolver e implementar uma consultoria agronômica especializada para o cultivo de maracujá, visando otimizar os processos produtivos, aumentar a produtividade e promover a sustentabilidade econômica e ambiental para os produtores.</p>
+        <p><strong>Importância da Consultoria Agronômica:</strong></p>
+        <ul>
+          <li><strong>Melhoria na Produtividade:</strong> Aplicação de práticas técnicas para maximizar o rendimento por hectare.</li>
+          <li><strong>Manejo Eficiente:</strong> Adequação do manejo agrícola com base em análises de solo, clima e escolha de cultivares adaptadas.</li>
+          <li><strong>Sustentabilidade:</strong> Adoção de métodos de cultivo que promovam a preservação dos recursos naturais e a redução do impacto ambiental.</li>
+          <li><strong>Capacitação dos Produtores:</strong> Transferência de conhecimentos técnicos que possibilitem a tomada de decisões embasadas durante todo o ciclo produtivo.</li>
+        </ul>
+      </div>
+    </section>
+    
+    <!-- Seção: Objetivos Específicos -->
+    <section id="objetivos">
+      <h2><i class="fa-solid fa-bullseye"></i>Objetivos Específicos</h2>
+      <div class="section-content">
+        <p><strong>Seleção da Área de Plantio:</strong> Identificar e avaliar regiões com clima, topografia e histórico de uso favoráveis ao cultivo de maracujá.</p>
+        <p><strong>Análise de Solo:</strong> Realizar a coleta de amostras e a análise de parâmetros essenciais (pH, nutrientes, matéria orgânica, etc.) para definir as correções e adubações necessárias.</p>
+        <p><strong>Escolha das Cultivares:</strong> Selecionar variedades de maracujá que apresentem alta produtividade, resistência a pragas e doenças e adaptação às condições regionais e demandas de mercado.</p>
+        <p><strong>Definição da Época e Espaçamento de Plantio:</strong> Determinar o melhor período para o plantio e estabelecer o espaçamento ideal para maximizar a eficiência produtiva e facilitar as práticas de manejo.</p>
+        <p><strong>Manejo de Pragas e Doenças:</strong> Estabelecer um programa integrado de controle fitossanitário, com monitoramento e ações preventivas e corretivas.</p>
+        <p><strong>Suporte Técnico Continuado:</strong> Acompanhar os produtores durante todo o ciclo da cultura, oferecendo orientações técnicas e ajustes necessários na gestão agronômica.</p>
+      </div>
+    </section>
+    
+    <!-- Seção: Metodologia -->
+    <section id="metodologia">
+      <h2><i class="fa-solid fa-flask"></i>Metodologia</h2>
+      <div class="section-content">
+        <h3>Análise da Área de Cultivo</h3>
+        <p><strong>Critérios para Seleção:</strong></p>
+        <ul>
+          <li><strong>Clima:</strong> Verificar regime de chuvas, temperatura e índices pluviométricos.</li>
+          <li><strong>Topografia:</strong> Analisar a inclinação do terreno, drenagem e facilidade de manejo.</li>
+          <li><strong>Histórico de Uso:</strong> Avaliar a produtividade anterior e possíveis problemas decorrentes de uso inadequado ou contaminação do solo.</li>
+        </ul>
+        <h3>Coleta e Análise de Solo</h3>
+        <p><strong>Processo Técnico de Amostragem:</strong></p>
+        <ul>
+          <li>Definir pontos de coleta representativos distribuídos uniformemente pela área.</li>
+          <li>Coletar amostras em profundidades padronizadas (0-20 cm ou conforme recomendação técnica).</li>
+        </ul>
+        <p><strong>Parâmetros Avaliados:</strong></p>
+        <ul>
+          <li>pH, teores de macro e micronutrientes (N, P, K, Ca, Mg, S, B, Zn, Fe, etc.).</li>
+          <li>Matéria orgânica e capacidade de troca catiônica (CTC).</li>
+        </ul>
+        <h3>Escolha das Cultivares</h3>
+        <p><strong>Critérios de Seleção:</strong></p>
+        <ul>
+          <li><strong>Produtividade:</strong> Variedades com histórico de alto rendimento.</li>
+          <li><strong>Resistência:</strong> Cultivares que apresentem tolerância a pragas, doenças e condições climáticas adversas.</li>
+          <li><strong>Mercado:</strong> Adequação das frutas para o consumo in natura ou processamento, conforme demanda do mercado.</li>
+          <li><strong>Adaptação Climática:</strong> Escolha de variedades testadas e aprovadas na região.</li>
+        </ul>
+        <h3>Manejo da Cultura</h3>
+        <p><strong>Adubação:</strong> Planejamento de adubações baseado nas análises de solo e necessidades nutricionais da planta, com cronograma de fertilizações considerando doses e periodicidade.</p>
+        <p><strong>Irrigação:</strong> Definição do método (gotejamento, aspersão, etc.) e dos horários ideais para minimizar perdas e maximizar a eficiência do uso da água.</p>
+        <p><strong>Poda:</strong> Estabelecimento de técnicas de poda que estimulem a renovação da planta e melhorem a aeração e luminosidade.</p>
+        <p><strong>Controle Fitossanitário:</strong> Implementação de um programa integrado de manejo de pragas e doenças, com monitoramento constante, utilização de agentes biológicos e, quando necessário, aplicação racional de defensivos.</p>
+        <h3>Monitoramento e Avaliação</h3>
+        <p><strong>Acompanhamento Técnico:</strong> Realização de visitas periódicas aos produtores para avaliação das práticas de manejo e dos indicadores agronômicos.</p>
+        <p><strong>Indicadores de Sucesso:</strong> Produtividade por hectare, qualidade dos frutos, redução na incidência de pragas e doenças e eficiência no uso dos insumos.</p>
+      </div>
+    </section>
+    
+    <!-- Seção: Plano de Ação -->
+    <section id="plano-de-acao">
+      <h2><i class="fa-solid fa-tasks"></i>Plano de Ação</h2>
+      <div class="section-content">
+        <h3>Cronograma de Atividades</h3>
+        <p><strong>Visitas Técnicas:</strong></p>
+        <ul>
+          <li><strong>Iniciação:</strong> Visita semanal nas primeiras 2 semanas pós-implantação.</li>
+          <li><strong>Manutenção:</strong> Visitas quinzenais nos três primeiros meses, ajustáveis conforme a necessidade do produtor.</li>
+          <li><strong>Avaliação Sazonal:</strong> Visitas mensais durante a safra para monitoramento dos indicadores.</li>
+        </ul>
+        <h3>Capacitação dos Produtores</h3>
+        <p><strong>Workshops e Treinamentos:</strong> Realização de encontros técnicos para treinamento sobre manejo integrado, análise de solo, técnicas de irrigação e controle fitossanitário.</p>
+        <p><strong>Material Didático:</strong> Distribuição de apostilas, vídeos e manuais práticos com os tópicos técnicos e melhores práticas.</p>
+        <p><strong>Plataforma de Suporte:</strong> Criação de um canal de comunicação (ex.: grupo de WhatsApp ou fórum online) para esclarecimento de dúvidas e troca de experiências.</p>
+      </div>
+    </section>
+    
+    <!-- Seção: Resultados e Indicadores -->
+    <section id="resultados">
+      <h2><i class="fa-solid fa-chart-line"></i>Resultados e Indicadores de Sucesso</h2>
+      <div class="section-content">
+        <h3>Resultados Esperados</h3>
+        <ul>
+          <li><strong>Aumento da Produtividade:</strong> Melhoria no rendimento por hectare e na qualidade dos frutos, resultando em maior rentabilidade.</li>
+          <li><strong>Redução de Perdas:</strong> Diminuição significativa da incidência de pragas e doenças, reduzindo perdas de produção.</li>
+          <li><strong>Otimização no Uso de Insumos:</strong> Uso racional e eficiente de fertilizantes e defensivos, com base em análises técnicas.</li>
+          <li><strong>Capacitação dos Produtores:</strong> Produtores mais informados e preparados para adotar boas práticas agrícolas.</li>
+        </ul>
+        <h3>Indicadores de Sucesso</h3>
+        <ul>
+          <li><strong>Produtividade:</strong> Medida em kg ou toneladas por hectare, comparando dados pré e pós-implantação.</li>
+          <li><strong>Qualidade dos Frutos:</strong> Parâmetros definidos pelo mercado (tamanho, cor, teor de polpa, etc.).</li>
+          <li><strong>Redução na Incidência de Pragas/Doenças:</strong> Percentual de diminuição de ocorrências, medido por registros de campo.</li>
+          <li><strong>Uso Eficiente de Insumos:</strong> Relação custo-benefício e diminuição de desperdícios, acompanhada por análises técnicas.</li>
+          <li><strong>Satisfação dos Produtores:</strong> Avaliações qualitativas e quantitativas da eficácia da consultoria.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+  
   <footer>
     <p>&copy; 2024 Mcastro Consultoria. Todos os direitos reservados.</p>
   </footer>
-
-  <!-- JavaScript para revelar seções ao rolar a página -->
+  
+  <!-- JavaScript para revelar seções conforme rolagem -->
   <script>
     const sections = document.querySelectorAll('section');
     const observerOptions = { threshold: 0.2 };

@@ -52,7 +52,7 @@
             transform: translateY(20px);
             transition: all 0.6s ease-out;
         }
-        section.visible {
+        section.active {
             opacity: 1;
             transform: translateY(0);
         }
@@ -61,13 +61,6 @@
             font-size: 2.2em;
             margin-bottom: 20px;
             text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        h2 i {
-            margin-right: 10px;
-            font-size: 1.5em;
         }
         p {
             font-size: 1.1em;
@@ -165,6 +158,21 @@
         form button:hover {
             background-color: #005bb5;
         }
+
+        /* Animações */
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>
 </head>
 <body>
@@ -179,54 +187,113 @@
         </nav>
     </header>
 
-    <section id="introducao">
-        <h2><i class="fa-solid fa-seedling"></i> Bem-vindo à Mcastro Consultoria</h2>
+    <section id="introducao" class="fade-in">
+        <h2>Bem-vindo à Mcastro Consultoria</h2>
         <img src="imagens/plantacao-maracuja.jpg" alt="Plantation of Passion Fruit" style="border-radius: 12px;">
         <p>A <strong>Mcastro Consultoria e Assistência Técnica</strong> é uma empresa especializada em oferecer soluções inovadoras e sustentáveis para produtores rurais que desejam maximizar a produtividade e a qualidade de suas plantações de maracujá.</p>
         <p><strong>Objetivo Geral:</strong> Desenvolver e implementar uma consultoria agronômica especializada para o cultivo de maracujá, visando otimizar os processos produtivos, aumentar a produtividade e promover a sustentabilidade econômica e ambiental para os produtores.</p>
         <p><strong>Importância da Consultoria Agronômica:</strong></p>
         <ul>
-            <li><i class="fa-solid fa-arrow-up"></i> <strong>Melhoria na Produtividade:</strong> Aplicação de práticas técnicas avançadas para maximizar o rendimento por hectare, reduzindo perdas e melhorando a eficiência operacional.</li>
-            <li><i class="fa-solid fa-dollar-sign"></i> <strong>Redução de Custos:</strong> Otimização no uso de insumos, como fertilizantes e defensivos agrícolas, garantindo economia sem comprometer a qualidade.</li>
-            <li><i class="fa-solid fa-leaf"></i> <strong>Sustentabilidade Ambiental:</strong> Uso racional de recursos naturais, como água e solo, além de práticas que minimizam o impacto ambiental.</li>
-            <li><i class="fa-solid fa-handshake"></i> <strong>Suporte Contínuo:</strong> Monitoramento constante da plantação com visitas técnicas periódicas, relatórios detalhados e suporte remoto via plataforma digital.</li>
+            <li><strong>Melhoria na Produtividade:</strong> Aplicação de práticas técnicas avançadas para maximizar o rendimento por hectare, reduzindo perdas e melhorando a eficiência operacional.</li>
+            <li><strong>Manejo Eficiente:</strong> Adequação do manejo agrícola com base em análises de solo, clima e escolha de cultivares adaptadas às condições locais.</li>
+            <li><strong>Sustentabilidade:</strong> Adoção de métodos de cultivo que promovam a preservação dos recursos naturais, como uso racional de água, controle integrado de pragas e adubação equilibrada.</li>
+            <li><strong>Capacitação Técnica:</strong> Treinamento e suporte contínuo para produtores, garantindo autonomia e segurança nas decisões estratégicas.</li>
         </ul>
     </section>
 
-    <section id="beneficios">
-        <h2><i class="fa-solid fa-chart-line"></i> Benefícios para os Produtores</h2>
+    <section id="beneficios" class="fade-in">
+        <h2>Benefícios para os Produtores</h2>
         <p>Nossa consultoria oferece uma série de benefícios que impactam diretamente na lucratividade e na sustentabilidade das plantações de maracujá:</p>
         <ul>
-            <li><i class="fa-solid fa-arrow-up"></i> <strong>Aumento de Produtividade:</strong> Implantação de práticas técnicas de ponta que possibilitam melhor rendimento por hectare.</li>
-            <li><i class="fa-solid fa-dollar-sign"></i> <strong>Redução de Custos:</strong> Economia no uso de insumos, como fertilizantes e defensivos agrícolas.</li>
-            <li><i class="fa-solid fa-leaf"></i> <strong>Sustentabilidade Ambiental:</strong> Práticas que preservam os recursos naturais e minimizam o impacto ambiental.</li>
-            <li><i class="fa-solid fa-handshake"></i> <strong>Suporte Contínuo:</strong> Visitas técnicas periódicas e suporte remoto para garantir o sucesso da plantação.</li>
+            <li><strong>Aumento de Produtividade:</strong> Implantação de práticas técnicas de ponta que possibilitam melhor rendimento por hectare, incluindo análise de solo, irrigação inteligente e manejo adequado de pragas.</li>
+            <li><strong>Redução de Custos:</strong> Otimização no uso de insumos, como fertilizantes e defensivos agrícolas, garantindo economia sem comprometer a qualidade.</li>
+            <li><strong>Sustentabilidade Ambiental:</strong> Uso racional de recursos naturais, como água e solo, além de práticas que minimizam o impacto ambiental, como rotação de culturas e controle biológico de pragas.</li>
+            <li><strong>Suporte Contínuo:</strong> Monitoramento constante da plantação com visitas técnicas periódicas, relatórios detalhados e suporte remoto via plataforma digital.</li>
+            <li><strong>Qualidade do Produto Final:</strong> Acompanhamento desde o plantio até a colheita para garantir frutas de alta qualidade, atendendo às exigências do mercado nacional e internacional.</li>
         </ul>
     </section>
 
-    <section id="servicos">
-        <h2><i class="fa-solid fa-toolbox"></i> Nossos Serviços</h2>
+    <section id="servicos" class="fade-in">
+        <h2>Nossos Serviços</h2>
         <p>Oferecemos um pacote completo de serviços para atender às necessidades específicas de cada produtor rural:</p>
         <ul>
-            <li><i class="fa-solid fa-magnifying-glass"></i> <strong>Diagnóstico Inicial:</strong> Visita técnica para avaliação da área e identificação de oportunidades de melhoria.</li>
-            <li><i class="fa-solid fa-seedling"></i> <strong>Planejamento Técnico:</strong> Seleção das cultivares mais adequadas à região e ao mercado.</li>
-            <li><i class="fa-solid fa-droplet"></i> <strong>Manejo da Cultura:</strong> Orientações sobre irrigação, adubação e controle fitossanitário.</li>
-            <li><i class="fa-solid fa-chart-bar"></i> <strong>Acompanhamento e Suporte:</strong> Visitas técnicas periódicas e relatórios personalizados.</li>
+            <li><strong>Diagnóstico Inicial:</strong> Visita técnica para avaliação da área, análise de clima, topografia, histórico de uso do solo e identificação de oportunidades de melhoria.</li>
+            <li><strong>Planejamento Técnico:</strong> Seleção das cultivares mais adequadas à região e ao mercado, levando em consideração fatores como resistência a pragas e adaptação climática.</li>
+            <li><strong>Manejo da Cultura:</strong> Orientações detalhadas sobre adubação, irrigação, poda e controle fitossanitário, garantindo o desenvolvimento saudável da plantação.</li>
+            <li><strong>Acompanhamento e Suporte:</strong> Visitas técnicas periódicas para monitoramento da plantação, ajustes técnicos e treinamento da equipe local.</li>
+            <li><strong>Relatórios Personalizados:</strong> Entrega de relatórios mensais com análises detalhadas do progresso da plantação, recomendações de melhorias e projeções de produtividade.</li>
         </ul>
     </section>
 
-    <section id="metodologia">
-        <h2><i class="fa-solid fa-chart-bar"></i> Metodologia</h2>
+    <section id="metodologia" class="fade-in">
+        <h2>Metodologia</h2>
         <p>Nossa abordagem é baseada em um processo estruturado e personalizado para atender às necessidades específicas de cada produtor:</p>
         <ul>
-            <li><i class="fa-solid fa-map"></i> <strong>Análise da Área de Cultivo:</strong> Avaliação detalhada do clima, topografia e tipo de solo.</li>
-            <li><i class="fa-solid fa-flask"></i> <strong>Coleta e Análise de Solo:</strong> Determinação dos parâmetros essenciais para orientar a adubação.</li>
-            <li><i class="fa-solid fa-seedling"></i> <strong>Escolha das Cultivares:</strong> Seleção de variedades adaptadas às condições regionais.</li>
-            <li><i class="fa-solid fa-chart-line"></i> <strong>Monitoramento Contínuo:</strong> Acompanhamento regular com visitas técnicas e ajustes.</li>
+            <li><strong>Análise da Área de Cultivo:</strong> Avaliação detalhada do clima, topografia, tipo de solo e histórico de uso da área para identificar potencialidades e desafios.</li>
+            <li><strong>Coleta e Análise de Solo:</strong> Determinação dos parâmetros essenciais (pH, nutrientes, matéria orgânica, etc.) para orientar a adubação e correção do solo.</li>
+            <li><strong>Escolha das Cultivares:</strong> Seleção de variedades adaptadas às condições regionais e demandas de mercado, garantindo maior produtividade e qualidade.</li>
+            <li><strong>Monitoramento Contínuo:</strong> Acompanhamento regular com visitas técnicas, relatórios detalhados e ajustes técnicos para garantir o sucesso da plantação.</li>
+            <li><strong>Treinamento e Capacitação:</strong> Oficinas e materiais educativos para capacitar os produtores e sua equipe sobre as melhores práticas agrícolas.</li>
         </ul>
     </section>
 
-    <section id="sobre-nos">
-        <h2><i class="fa-solid fa-users"></i> Sobre Nós</h2>
+    <section id="sobre-nos" class="fade-in">
+        <h2>Sobre Nós</h2>
         <img src="imagens/equipe-mcastro.jpg" alt="Equipe Mcastro">
-        <p>A <strong>Mcastro Consultoria e Assistência Técnica</strong> foi fundada com o objetivo de transformar o cultivo de maracujá em uma atividade altamente produtiva e sustentável. Som
+        <p>A <strong>Mcastro Consultoria e Assistência Técnica</strong> foi fundada com o objetivo de transformar o cultivo de maracujá em uma atividade altamente produtiva e sustentável. Somos uma equipe de profissionais altamente qualificados, com anos de experiência em agronomia, manejo de culturas e consultoria técnica.</p>
+        <p>Nossa missão é fornecer soluções inovadoras e personalizadas para produtores rurais, ajudando-os a alcançar resultados excepcionais em termos de produtividade, qualidade e sustentabilidade.</p>
+        <p><strong>Valores:</strong></p>
+        <ul>
+            <li>Compromisso com a excelência técnica.</li>
+            <li>Respeito ao meio ambiente e às comunidades locais.</li>
+            <li>Transparência e ética em todas as interações.</li>
+            <li>Inovação constante para superar desafios agrícolas.</li>
+        </ul>
+    </section>
+
+    <section id="contato" class="fade-in">
+        <h2>Entre em Contato</h2>
+        <p>Estamos prontos para ajudar você a transformar sua plantação de maracujá. Entre em contato agora!</p>
+        <form id="contact-form">
+            <input type="text" placeholder="Seu Nome" required>
+            <input type="email" placeholder="Seu E-mail" required>
+            <textarea rows="5" placeholder="Sua Mensagem" required></textarea>
+            <button type="submit">Enviar Mensagem</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Mcastro Consultoria e Assistência Técnica. Todos os direitos reservados.</p>
+        <p>Entre em contato conosco:</p>
+        <p><strong>Celular:</strong> (77) 99827-6042 | <strong>E-mail:</strong> marconi.castro.mc@gmail.com</p>
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/seu-perfil" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://www.instagram.com/seu-perfil" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://wa.me/5577998276042" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+    </footer>
+
+    <script>
+        // Animação de fade-in ao rolar a página
+        document.addEventListener("DOMContentLoaded", () => {
+            const sections = document.querySelectorAll("section");
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("active");
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            sections.forEach(section => observer.observe(section));
+        });
+
+        // Simulação de envio do formulário
+        document.getElementById("contact-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            alert("Mensagem enviada com sucesso! Entraremos em contato em breve.");
+            this.reset();
+        });
+    </script>
+</body>
+    </html>

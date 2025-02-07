@@ -52,7 +52,7 @@
             transform: translateY(20px);
             transition: all 0.6s ease-out;
         }
-        section.active {
+        section.visible {
             opacity: 1;
             transform: translateY(0);
         }
@@ -165,21 +165,6 @@
         form button:hover {
             background-color: #005bb5;
         }
-
-        /* Animações */
-        .fade-in {
-            animation: fadeIn 1s ease-in-out;
-        }
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
     </style>
 </head>
 <body>
@@ -194,7 +179,7 @@
         </nav>
     </header>
 
-    <section id="introducao" class="fade-in">
+    <section id="introducao">
         <h2><i class="fa-solid fa-seedling"></i> Bem-vindo à Mcastro Consultoria</h2>
         <img src="imagens/plantacao-maracuja.jpg" alt="Plantation of Passion Fruit" style="border-radius: 12px;">
         <p>A <strong>Mcastro Consultoria e Assistência Técnica</strong> é uma empresa especializada em oferecer soluções inovadoras e sustentáveis para produtores rurais que desejam maximizar a produtividade e a qualidade de suas plantações de maracujá.</p>
@@ -208,7 +193,7 @@
         </ul>
     </section>
 
-    <section id="beneficios" class="fade-in">
+    <section id="beneficios">
         <h2><i class="fa-solid fa-chart-line"></i> Benefícios para os Produtores</h2>
         <p>Nossa consultoria oferece uma série de benefícios que impactam diretamente na lucratividade e na sustentabilidade das plantações de maracujá:</p>
         <ul>
@@ -219,7 +204,7 @@
         </ul>
     </section>
 
-    <section id="servicos" class="fade-in">
+    <section id="servicos">
         <h2><i class="fa-solid fa-toolbox"></i> Nossos Serviços</h2>
         <p>Oferecemos um pacote completo de serviços para atender às necessidades específicas de cada produtor rural:</p>
         <ul>
@@ -230,7 +215,7 @@
         </ul>
     </section>
 
-    <section id="metodologia" class="fade-in">
+    <section id="metodologia">
         <h2><i class="fa-solid fa-chart-bar"></i> Metodologia</h2>
         <p>Nossa abordagem é baseada em um processo estruturado e personalizado para atender às necessidades específicas de cada produtor:</p>
         <ul>
@@ -241,13 +226,7 @@
         </ul>
     </section>
 
-    <section id="sobre-nos" class="fade-in">
+    <section id="sobre-nos">
         <h2><i class="fa-solid fa-users"></i> Sobre Nós</h2>
         <img src="imagens/equipe-mcastro.jpg" alt="Equipe Mcastro">
-        <p>A <strong>Mcastro Consultoria e Assistência Técnica</strong> foi fundada com o objetivo de transformar o cultivo de maracujá em uma atividade altamente produtiva e sustentável. Somos uma equipe de profissionais altamente qualificados, com anos de experiência em agronomia, manejo de culturas e consultoria técnica.</p>
-        <p><strong>Valores:</strong></p>
-        <ul>
-            <li><i class="fa-solid fa-check"></i> Compromisso com a excelência técnica.</li>
-            <li><i class="fa-solid fa-check"></i> Respeito ao meio ambiente e às comunidades locais.</li>
-            <li><i class="fa-solid fa-check"></i> Transparência e ética em todas as interações.</li>
-            <li><i class="fa-solid fa-check"></i> Inovação constante para superar desafios agrícola
+        <p>A <strong>Mcastro Consultoria e Assistência Técnica</strong> foi fundada com o objetivo de transformar o cultivo de maracujá em uma atividade altamente produtiva e sustentável. Som

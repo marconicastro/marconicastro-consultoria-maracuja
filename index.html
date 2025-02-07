@@ -14,11 +14,11 @@
             padding: 0;
             line-height: 1.6;
             color: #333;
-            background-color: #f9f9f9;
+            background-color: #ffffff;
             overflow-x: hidden;
         }
         header {
-            background: linear-gradient(135deg, #2c3e50, #3498db);
+            background: linear-gradient(135deg, #000000, #434343);
             color: white;
             text-align: center;
             padding: 20px 0;
@@ -43,7 +43,7 @@
         }
         section {
             max-width: 1200px;
-            margin: 40px auto;
+            margin: 80px auto;
             padding: 40px 20px;
             border-radius: 12px;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
@@ -58,36 +58,42 @@
         }
         h2 {
             color: #2c3e50;
-            font-size: 1.8em;
+            font-size: 2.2em;
             margin-bottom: 20px;
-            display: flex;
-            align-items: center;
+            text-align: center;
         }
-        h2 i {
-            margin-right: 10px;
-            font-size: 1.5em;
+        p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            text-align: center;
+            margin: 20px 0;
         }
         ul {
             list-style-type: disc;
             margin-left: 20px;
+            text-align: left;
+            margin: 0 auto;
+            max-width: 600px;
         }
         .cta-button {
             display: inline-block;
-            margin-top: 20px;
+            margin: 20px auto;
             padding: 12px 24px;
-            background-color: #3498db;
+            background-color: #0071e3;
             color: white;
             text-decoration: none;
             border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
             transition: background-color 0.3s ease;
         }
         .cta-button:hover {
-            background-color: #2980b9;
+            background-color: #005bb5;
         }
         footer {
             text-align: center;
             padding: 40px 20px;
-            background: #2c3e50;
+            background: #000000;
             color: white;
             font-size: 0.9em;
         }
@@ -114,8 +120,8 @@
         /* Seção Sobre Nós */
         #sobre-nos img {
             width: 100%;
-            max-width: 400px;
-            border-radius: 8px;
+            max-width: 600px;
+            border-radius: 12px;
             margin: 20px auto;
             display: block;
         }
@@ -129,14 +135,19 @@
             gap: 15px;
         }
         form input, form textarea {
-            padding: 10px;
+            padding: 12px;
             border: 1px solid #ccc;
             border-radius: 8px;
             font-size: 1em;
+            transition: border-color 0.3s ease;
+        }
+        form input:focus, form textarea:focus {
+            border-color: #0071e3;
+            outline: none;
         }
         form button {
-            padding: 10px;
-            background-color: #3498db;
+            padding: 12px;
+            background-color: #0071e3;
             color: white;
             border: none;
             border-radius: 8px;
@@ -145,7 +156,7 @@
             transition: background-color 0.3s ease;
         }
         form button:hover {
-            background-color: #2980b9;
+            background-color: #005bb5;
         }
 
         /* Animações */
@@ -162,29 +173,6 @@
                 transform: translateY(0);
             }
         }
-
-        /* Estilo Apple-like */
-        header {
-            background: linear-gradient(135deg, #000000, #434343);
-        }
-        section {
-            background: #ffffff;
-            border: 1px solid #e1e1e1;
-        }
-        h2 {
-            font-weight: 600;
-            letter-spacing: -0.5px;
-        }
-        .cta-button {
-            background-color: #0071e3;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .cta-button:hover {
-            background-color: #005bb5;
-        }
-        footer {
-            background: #000000;
-        }
     </style>
 </head>
 <body>
@@ -199,18 +187,14 @@
     </header>
 
     <section id="introducao" class="fade-in">
-        <h2><i class="fa-solid fa-seedling"></i> Introdução</h2>
+        <h2>Bem-vindo à Mcastro Consultoria</h2>
+        <p>A solução completa para aumentar sua produtividade e sustentabilidade.</p>
+        <img src="https://via.placeholder.com/1200x400" alt="Plantation of Passion Fruit" style="border-radius: 12px;">
         <p><strong>Objetivo Geral:</strong> Desenvolver e implementar uma consultoria agronômica especializada para o cultivo de maracujá, visando otimizar os processos produtivos, aumentar a produtividade e promover a sustentabilidade econômica e ambiental para os produtores.</p>
-        <p><strong>Importância da Consultoria Agronômica:</strong></p>
-        <ul>
-            <li>Melhoria na Produtividade: Aplicação de práticas técnicas para maximizar o rendimento por hectare.</li>
-            <li>Manejo Eficiente: Adequação do manejo agrícola com base em análises de solo, clima e escolha de cultivares adaptadas.</li>
-            <li>Sustentabilidade: Adoção de métodos de cultivo que promovam a preservação dos recursos naturais e a redução do impacto ambiental.</li>
-        </ul>
     </section>
 
     <section id="beneficios" class="fade-in">
-        <h2><i class="fa-solid fa-chart-line"></i> Benefícios para os Produtores</h2>
+        <h2>Benefícios para os Produtores</h2>
         <ul>
             <li><strong>Aumento de Produtividade:</strong> Implantação de práticas técnicas de ponta que possibilitam melhor rendimento por hectare.</li>
             <li><strong>Manejo Eficiente:</strong> Diagnóstico preciso, análises laboratoriais e recomendações customizadas para adubação, irrigação, poda e controle fitossanitário.</li>
@@ -220,7 +204,7 @@
     </section>
 
     <section id="servicos" class="fade-in">
-        <h2><i class="fa-solid fa-toolbox"></i> Serviços Inclusos</h2>
+        <h2>Nossos Serviços</h2>
         <ul>
             <li><strong>Diagnóstico Inicial:</strong> Visita técnica para avaliação da área, análise de clima, topografia e histórico de uso do solo.</li>
             <li><strong>Planejamento Técnico:</strong> Seleção das cultivares mais adequadas à região e ao mercado.</li>
@@ -230,13 +214,13 @@
     </section>
 
     <section id="sobre-nos" class="fade-in">
-        <h2><i class="fa-solid fa-users"></i> Sobre Nós</h2>
-        <img src="https://via.placeholder.com/400x300" alt="Equipe Mcastro">
+        <h2>Sobre Nós</h2>
+        <img src="https://via.placeholder.com/600x400" alt="Equipe Mcastro">
         <p>Somos uma equipe dedicada de profissionais especializados em consultoria agronômica. Nosso compromisso é oferecer soluções personalizadas para impulsionar a produtividade e a sustentabilidade no cultivo de maracujá.</p>
     </section>
 
     <section id="contato" class="fade-in">
-        <h2><i class="fa-solid fa-envelope"></i> Entre em Contato</h2>
+        <h2>Entre em Contato</h2>
         <form id="contact-form">
             <input type="text" placeholder="Seu Nome" required>
             <input type="email" placeholder="Seu E-mail" required>

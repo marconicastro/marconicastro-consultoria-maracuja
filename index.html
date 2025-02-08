@@ -1,637 +1,149 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Consultoria especializada em cultivo de maracujá: análise técnica, otimização de produção e suporte contínuo para maximizar seus resultados.">
-  <meta name="keywords" content="consultoria maracujá, assistência técnica agrícola, produção maracujá, análise solo, manejo integrado, cultivo sustentável">
-  <title>Mcastro Consultoria | Especialistas em Cultivo de Maracujá</title>
-
-  <!-- Preload de recursos críticos -->
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style">
-  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style">
-
-  <!-- Estilos -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-  <style>
-    :root {
-      --primary: #0071e3;
-      --primary-dark: #0051a2;
-      --secondary: #86868b;
-      --accent: #ac39ff;
-      --success: #29d344;
-      --warning: #ffd60a;
-      --danger: #ff453a;
-      --black: #1d1d1f;
-      --white: #ffffff;
-      --gray-50: #f5f5f7;
-      --gray-100: #e6e6e6;
-      --gray-200: #d2d2d7;
-      --gray-300: #86868b;
-      --header-height: 44px;
-      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
-    }
-
-    /* Reset e Bases */
-    *, *::before, *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: calc(var(--header-height) + 20px);
-    }
-
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      line-height: 1.5;
-      color: var(--black);
-      background: var(--white);
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* Tipografia */
-    h1, h2, h3, h4, h5, h6 {
-      font-weight: 600;
-      line-height: 1.2;
-    }
-
-    h1 {
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      letter-spacing: -0.02em;
-    }
-
-    h2 {
-      font-size: clamp(2rem, 4vw, 3rem);
-      margin-bottom: 1.5rem;
-    }
-
-    h3 {
-      font-size: clamp(1.5rem, 3vw, 2rem);
-      margin-bottom: 1rem;
-    }
-
-    p {
-      margin-bottom: 1rem;
-      color: var(--gray-300);
-    }
-
-    /* Header */
-    .header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: var(--header-height);
-      background: rgba(255, 255, 255, 0.8);
-      backdrop-filter: saturate(180%) blur(20px);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 max(5vw, 1rem);
-      z-index: 100;
-      transition: var(--transition);
-    }
-
-    .header.scrolled {
-      background: rgba(255, 255, 255, 0.95);
-      box-shadow: var(--shadow);
-    }
-
-    .logo {
-      font-weight: 700;
-      font-size: 1.25rem;
-      color: var(--black);
-      text-decoration: none;
-    }
-
-    .nav {
-      display: flex;
-      gap: 2rem;
-    }
-
-    .nav-link {
-      color: var(--gray-300);
-      text-decoration: none;
-      font-size: 0.875rem;
-      transition: var(--transition);
-      position: relative;
-    }
-
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background: var(--primary);
-      transform: scaleX(0);
-      transition: var(--transition);
-    }
-
-    .nav-link:hover {
-      color: var(--primary);
-    }
-
-    .nav-link:hover::after {
-      transform: scaleX(1);
-    }
-
-    /* Hero Section */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: calc(var(--header-height) + 2rem) 1rem 4rem;
-      background: linear-gradient(135deg, var(--gray-50) 0%, var(--white) 100%);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: url('/api/placeholder/1920/1080') center/cover no-repeat;
-      opacity: 0.1;
-      z-index: 0;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      padding: 0.5rem 1rem;
-      background: var(--accent);
-      color: var(--white);
-      border-radius: 100px;
-      font-size: 0.875rem;
-      font-weight: 500;
-      margin-bottom: 2rem;
-      animation: fadeIn 1s ease;
-    }
-
-    .hero-title {
-      margin-bottom: 1.5rem;
-      animation: fadeUp 1s ease 0.2s backwards;
-    }
-
-    .hero-description {
-      font-size: clamp(1.125rem, 2vw, 1.5rem);
-      max-width: 600px;
-      margin: 0 auto 2rem;
-      animation: fadeUp 1s ease 0.4s backwards;
-    }
-
-    /* Estatísticas */
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 2rem;
-      max-width: 1200px;
-      margin: 4rem auto;
-      padding: 2rem;
-      background: var(--white);
-      border-radius: 20px;
-      box-shadow: var(--shadow);
-    }
-
-    .stat-item {
-      text-align: center;
-    }
-
-    .stat-value {
-      font-size: 3rem;
-      font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 0.5rem;
-    }
-
-    .stat-label {
-      color: var(--gray-300);
-      font-size: 0.875rem;
-    }
-
-    /* Seções */
-    .section {
-      padding: 6rem 1rem;
-    }
-
-    .section-dark {
-      background: var(--gray-50);
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    /* Cards */
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-
-    .card {
-      background: var(--white);
-      border-radius: 20px;
-      padding: 2rem;
-      transition: var(--transition);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow-lg);
-    }
-
-    .card-icon {
-      font-size: 2rem;
-      color: var(--primary);
-      margin-bottom: 1rem;
-    }
-
-    /* Metodologia */
-    .methodology-steps {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-
-    .step-card {
-      background: var(--white);
-      border-radius: 20px;
-      padding: 2rem;
-      text-align: center;
-      transition: var(--transition);
-    }
-
-    .step-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow);
-    }
-
-    .step-number {
-      width: 40px;
-      height: 40px;
-      background: var(--primary);
-      color: var(--white);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 1rem;
-      font-weight: 600;
-    }
-
-    /* Resultados */
-    .results-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-
-    .result-card {
-      background: var(--white);
-      border-radius: 20px;
-      padding: 2rem;
-      text-align: center;
-    }
-
-    .result-icon {
-      font-size: 2.5rem;
-      color: var(--success);
-      margin-bottom: 1rem;
-    }
-
-    /* Contato */
-    .contact-section {
-      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-      color: var(--white);
-      padding: 6rem 1rem;
-      text-align: center;
-    }
-
-    .contact-title {
-      color: var(--white);
-    }
-
-    .contact-description {
-      color: rgba(255, 255, 255, 0.8);
-      max-width: 600px;
-      margin: 0 auto 2rem;
-    }
-
-    /* Botões */
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.75rem 2rem;
-      border-radius: 100px;
-      font-size: 1rem;
-      font-weight: 500;
-      text-decoration: none;
-      transition: var(--transition);
-      cursor: pointer;
-      border: none;
-    }
-
-    .button-primary {
-      background: var(--primary);
-      color: var(--white);
-    }
-
-    .button-primary:hover {
-      background: var(--primary-dark);
-      transform: translateY(-2px);
-    }
-
-    .button-white {
-      background: var(--white);
-      color: var(--primary);
-    }
-
-    .button-white:hover {
-      background: var(--gray-100);
-      transform: translateY(-2px);
-    }
-
-    /* Footer */
-    .footer {
-      background: var(--black);
-      color: var(--white);
-      padding: 4rem 1rem;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .footer-column h4 {
-      color: var(--white);
-      margin-bottom: 1rem;
-    }
-
-    .footer-link {
-      color: var(--gray-300);
-      text-decoration: none;
-      display: block;
-      margin-bottom: 0.5rem;
-      transition: var(--transition);
-    }
-
-    .footer-link:hover {
-      color: var(--white);
-    }
-
-    .footer-bottom {
-      border-top: 1px solid var(--gray-300);
-      margin-top: 2rem;
-      padding-top: 2rem;
-      text-align: center;
-      color: var(--gray-300);
-    }
-
-    /* Animações */
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* Media Queries */
-    @media (max-width: 768px) {
-      .nav {
-        display: none;
-      }
-      
-      .mobile-menu-button {
-        display: block;
-      }
-
-      .stats {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 480px) {
-      .stats {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-badge {
-        font-size: 0.75rem;
-      }
-
-      .button {
-        width: 100%;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Consultoria especializada em cultivo de maracujá: análise técnica, otimização de produção e suporte contínuo para maximizar seus resultados.">
+    <meta name="keywords" content="consultoria maracujá, assistência técnica agrícola, produção maracujá, análise solo, manejo integrado, cultivo sustentável">
+    <title>Mcastro Consultoria | Especialistas em Cultivo de Maracujá</title>
+
+    <!-- Preload de fontes e estilos -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #0071e3;
+            --secondary: #86868b;
+            --black: #1d1d1f;
+            --white: #ffffff;
+            --gray-100: #e6e6e6;
+            --gray-200: #d2d2d7;
+            --transition: all 0.3s ease-in-out;
+        }
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--white);
+            color: var(--black);
+            line-height: 1.6;
+        }
+
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            padding: 15px 30px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: var(--primary);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            color: var(--black);
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: var(--secondary);
+        }
+
+        .contact {
+            text-align: center;
+            padding: 30px;
+            background: var(--gray-100);
+        }
+
+        .contact p {
+            font-size: 1.1rem;
+        }
+
+        .contact a {
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .contact a:hover {
+            color: var(--black);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: var(--gray-200);
+            font-size: 0.9rem;
+        }
+    </style>
 </head>
 <body>
-  <!-- Header -->
-  <header class="header" id="header">
-    <a href="#" class="logo">Mcastro</a>
-    <nav class="nav">
-      <a href="#sobre" class="nav-link">Sobre</a>
-      <a href="#metodologia" class="nav-link">Metodologia</a>
-      <a href="#servicos" class="nav-link">Serviços</a>
-      <a href="#resultados" class="nav-link">Resultados</a>
-      <a href="#contato" class="nav-link">Contato</a>
-    </nav>
-  </header>
 
-  <!-- Hero -->
-  <section class="hero" id="hero">
-    <div class="hero-content">
-      <div class="hero-badge">Bem-vindo</div>
-      <h1 class="hero-title">Especialistas em Cultivo de Maracujá</h1>
-      <p class="hero-description">Maximize sua produção com nossa consultoria técnica especializada.</p>
-      <a href="#contato" class="button button-primary">Fale Conosco</a>
-    </div>
-  </section>
+    <header>
+        <h1>Mcastro Consultoria</h1>
+        <p>Especialistas em Cultivo de Maracujá</p>
+    </header>
 
-  <!-- Seção Sobre -->
-  <section id="sobre" class="section">
     <div class="container">
-      <h2>Sobre Nós</h2>
-      <p>Somos uma consultoria dedicada a otimizar a produção de maracujá, com foco em sustentabilidade e tecnologia de ponta.</p>
-      <div class="cards-grid">
-        <div class="card">
-          <i class="fas fa-leaf card-icon"></i>
-          <h3>Expertise Agrícola</h3>
-          <p>Nossa equipe possui anos de experiência no cultivo e manejo de maracujá.</p>
-        </div>
-        <div class="card">
-          <i class="fas fa-chart-line card-icon"></i>
-          <h3>Resultados Comprovados</h3>
-          <p>Aumentamos a produtividade e qualidade das plantações com técnicas inovadoras.</p>
-        </div>
-        <div class="card">
-          <i class="fas fa-cogs card-icon"></i>
-          <h3>Suporte Contínuo</h3>
-          <p>Oferecemos consultoria técnica contínua para acompanhar cada etapa do cultivo.</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Seção Metodologia -->
-  <section id="metodologia" class="section section-dark">
-    <div class="container">
-      <h2>Metodologia</h2>
-      <p>Nossa abordagem é baseada em análises detalhadas e práticas sustentáveis.</p>
-      <div class="methodology-steps">
-        <div class="step-card">
-          <div class="step-number">1</div>
-          <h3>Análise do Solo</h3>
-          <p>Identificação das necessidades específicas de cada plantação.</p>
-        </div>
-        <div class="step-card">
-          <div class="step-number">2</div>
-          <h3>Manejo Integrado</h3>
-          <p>Implementação de técnicas para otimizar o uso dos recursos.</p>
-        </div>
-        <div class="step-card">
-          <div class="step-number">3</div>
-          <h3>Monitoramento</h3>
-          <p>Acompanhamento contínuo para garantir os melhores resultados.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+        <section id="introducao">
+            <h2>Introdução</h2>
+            <p>Nosso objetivo é otimizar os processos produtivos do cultivo de maracujá, garantindo alta produtividade e sustentabilidade. Aplicamos técnicas agronômicas modernas para maximizar seus resultados.</p>
+        </section>
 
-  <!-- Seção Serviços -->
-  <section id="servicos" class="section">
-    <div class="container">
-      <h2>Serviços</h2>
-      <p>Oferecemos uma gama de serviços para atender às suas necessidades agrícolas.</p>
-      <div class="cards-grid">
-        <div class="card">
-          <i class="fas fa-seedling card-icon"></i>
-          <h3>Consultoria Técnica</h3>
-          <p>Análise personalizada para cada cliente e plantação.</p>
-        </div>
-        <div class="card">
-          <i class="fas fa-flask card-icon"></i>
-          <h3>Laboratório</h3>
-          <p>Testes de solo e foliares para garantir a saúde das plantas.</p>
-        </div>
-        <div class="card">
-          <i class="fas fa-truck card-icon"></i>
-          <h3>Logística</h3>
-          <p>Suporte completo para distribuição e comercialização dos produtos.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+        <section id="objetivos">
+            <h2>Objetivos Específicos</h2>
+            <ul>
+                <li>Seleção da área de plantio com critérios técnicos.</li>
+                <li>Análise de solo detalhada para correções adequadas.</li>
+                <li>Escolha estratégica de cultivares adaptadas ao clima.</li>
+                <li>Definição da melhor época e espaçamento de plantio.</li>
+                <li>Implementação de manejo eficiente contra pragas e doenças.</li>
+                <li>Suporte técnico contínuo ao produtor.</li>
+            </ul>
+        </section>
 
-  <!-- Seção Resultados -->
-  <section id="resultados" class="section section-dark">
-    <div class="container">
-      <h2>Resultados</h2>
-      <div class="stats">
-        <div class="stat-item">
-          <div class="stat-value">150+</div>
-          <div class="stat-label">Clientes Satisfeitos</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-value">200%</div>
-          <div class="stat-label">Aumento de Produtividade</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-value">50+</div>
-          <div class="stat-label">Anos de Experiência</div>
-        </div>
-      </div>
-    </div>
-  </section>
+        <section id="metodologia">
+            <h2>Metodologia</h2>
+            <p>A consultoria segue um plano estruturado, que inclui:</p>
+            <ul>
+                <li><strong>Análise da área de cultivo:</strong> Verificação do clima, topografia e histórico de uso.</li>
+                <li><strong>Coleta e análise de solo:</strong> Parâmetros essenciais como pH, nutrientes e matéria orgânica.</li>
+                <li><strong>Escolha das cultivares:</strong> Seleção de variedades produtivas e resistentes.</li>
+            </ul>
+        </section>
 
-  <!-- Seção Contato -->
-  <section id="contato" class="contact-section">
-    <div class="container">
-      <h2 class="contact-title">Entre em Contato</h2>
-      <p class="contact-description">Estamos prontos para ajudar a transformar seu cultivo. Fale conosco hoje mesmo!</p>
-      <a href="mailto:contato@mcastro.com" class="button button-white">Enviar Email</a>
-    </div>
-  </section>
+        <section class="contact">
+            <h2>Entre em Contato</h2>
+            <p><i class="fa-solid fa-phone"></i> Celular: <a href="tel:+5577998276042">77 99827-6042</a></p>
+            <p><i class="fa-solid fa-envelope"></i> E-mail: <a href="mailto:marconi.castro.mc@gmail.com">marconi.castro.mc@gmail.com</a></p>
+        </section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container footer-grid">
-      <div class="footer-column">
-        <h4>Empresa</h4>
-        <a href="#sobre" class="footer-link">Sobre</a>
-        <a href="#servicos" class="footer-link">Serviços</a>
-        <a href="#contato" class="footer-link">Contato</a>
-      </div>
-      <div class="footer-column">
-        <h4>Redes Sociais</h4>
-        <a href="#" class="footer-link"><i class="fab fa-facebook-f"></i> Facebook</a>
-        <a href="#" class="footer-link"><i class="fab fa-instagram"></i> Instagram</a>
-        <a href="#" class="footer-link"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
-      </div>
-      <div class="footer-column">
-        <h4>Contato</h4>
-        <a href="mailto:contato@mcastro.com" class="footer-link">contato@mcastro.com</a>
-        <a href="tel:+5511999999999" class="footer-link">+55 11 99999-9999</a>
-      </div>
     </div>
-    <div class="footer-bottom">
-      <p>&copy; 2025 Mcastro Consultoria. Todos os direitos reservados.</p>
-    </div>
-  </footer>
 
-  <!-- Script para adicionar a classe "scrolled" ao header -->
-  <script>
-    window.addEventListener('scroll', function() {
-      const header = document.getElementById('header');
-      if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-    });
-  </script>
+    <footer>
+        <p>&copy; 2024 Mcastro Consultoria - Todos os direitos reservados.</p>
+    </footer>
+
 </body>
-    </html>
+</html>

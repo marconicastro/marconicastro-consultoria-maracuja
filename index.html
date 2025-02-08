@@ -1,480 +1,485 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Assistência Técnica para Cultivo de Maracujá</title>
-  
-  <!-- Fontes e Ícones -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  
-  <style>
-    /* ==============================
-       VARIÁVEIS & CONFIGURAÇÕES
-    ============================== */
-    :root {
-      --primary-color: #0071e3;
-      --secondary-color: #005bb5;
-      --bg-dark: #121212;
-      --bg-darker: #0f0f0f;
-      --text-color: #ffffff;
-      --text-muted: #cccccc;
-      --header-height: 80px;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Consultoria especializada em cultivo de maracujá: análise técnica, otimização de produção e suporte contínuo para maximizar seus resultados.">
+    <meta name="keywords" content="consultoria maracujá, assistência técnica agrícola, produção maracujá, análise solo, manejo integrado, cultivo sustentável">
+    <title>Mcastro Consultoria | Especialistas em Cultivo de Maracujá</title>
+
+    <!-- Preload recursos críticos -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style">
     
-    /* ==============================
-       RESET & GLOBAIS
-    ============================== */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--bg-dark);
-      color: var(--text-color);
-      line-height: 1.6;
-      scroll-behavior: smooth;
-      overflow-x: hidden;
-      padding-top: var(--header-height); /* Compensa o header fixo */
-    }
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+    <!-- Estilos -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
-    /* ==============================
-       HEADER & NAVEGAÇÃO
-    ============================== */
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: var(--header-height);
-      background: rgba(0,0,0,0.8);
-      backdrop-filter: blur(10px);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 40px;
-      z-index: 1000;
-      transition: all 0.3s ease;
-    }
-    header.shrink {
-      height: 60px;
-      padding: 0 30px;
-    }
-    .logo {
-      font-size: 1.8em;
-      font-weight: 700;
-      color: var(--text-color);
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 30px;
-    }
-    nav ul li a {
-      font-size: 1em;
-      color: var(--text-color);
-      transition: color 0.3s ease;
-    }
-    nav ul li a:hover {
-      color: var(--primary-color);
-    }
-    
-    /* ==============================
-       SEÇÃO HERO
-    ============================== */
-    .hero {
-      position: relative;
-      height: 100vh;
-      background: url('https://source.unsplash.com/1600x900/?passionfruit,field') no-repeat center center/cover;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 20px;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0, 0, 0, 0.6);
-      z-index: 1;
-    }
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 900px;
-      padding: 20px;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 1.2s ease forwards 0.5s;
-    }
-    .hero h1 {
-      font-size: 3.5em;
-      margin-bottom: 20px;
-      text-transform: uppercase;
-      letter-spacing: 4px;
-    }
-    .hero p {
-      font-size: 1.3em;
-      margin-bottom: 30px;
-      color: var(--text-muted);
-    }
-    .hero button {
-      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-      border: none;
-      padding: 15px 40px;
-      font-size: 1.2em;
-      color: var(--text-color);
-      border-radius: 50px;
-      cursor: pointer;
-      transition: transform 0.3s ease, background 0.3s ease;
-    }
-    .hero button:hover {
-      transform: scale(1.05);
-      background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
-    }
-    /* Bloco de Destaques com Ícones na Hero */
-    .features {
-      margin-top: 40px;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 40px;
-    }
-    .feature {
-      text-align: center;
-      max-width: 200px;
-    }
-    .feature i {
-      font-size: 3em;
-      color: var(--primary-color);
-      margin-bottom: 10px;
-    }
-    .feature h4 {
-      font-size: 1.2em;
-      margin-bottom: 8px;
-    }
-    .feature p {
-      font-size: 0.9em;
-      color: var(--text-muted);
-    }
-    
-    /* ==============================
-       SEÇÕES DE CONTEÚDO
-    ============================== */
-    main {
-      /* Todas as seções ficam dentro do main */
-    }
-    section {
-      padding: 80px 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    section h2 {
-      font-size: 2.8em;
-      margin-bottom: 20px;
-      text-align: center;
-      color: var(--primary-color);
-      position: relative;
-      padding-bottom: 10px;
-    }
-    section h2::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 60px;
-      height: 3px;
-      background: var(--primary-color);
-      border-radius: 3px;
-    }
-    .section-content {
-      font-size: 1.1em;
-      line-height: 1.8;
-      max-width: 900px;
-      margin: 30px auto 0;
-      text-align: justify;
-    }
-    .section-content ul {
-      list-style: disc inside;
-      margin-top: 15px;
-    }
-    .section-content li {
-      margin-bottom: 10px;
-    }
-    .section-content h3 {
-      font-size: 1.8em;
-      margin: 20px 0 10px;
-      color: var(--primary-color);
-    }
-    
-    /* ==============================
-       FOOTER
-    ============================== */
-    footer {
-      background: var(--bg-darker);
-      color: var(--text-muted);
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9em;
-    }
-    
-    /* ==============================
-       ANIMAÇÕES
-    ============================== */
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    
-    /* ==============================
-       RESPONSIVIDADE
-    ============================== */
-    @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 2.8em;
-      }
-      .hero p {
-        font-size: 1.1em;
-      }
-      section h2 {
-        font-size: 2.3em;
-      }
-      .section-content {
-        font-size: 1em;
-      }
-      nav ul { gap: 15px; }
-      .features { gap: 20px; }
-    }
-    
-    @media (max-width: 480px) {
-      header {
-        flex-direction: column;
-        padding: 10px;
-        height: auto;
-      }
-      nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-      .hero h1 {
-        font-size: 2.5em;
-      }
-      .hero p {
-        font-size: 1em;
-      }
-      .hero button {
-        font-size: 1em;
-        padding: 12px 30px;
-      }
-    }
-  </style>
+    <style>
+        :root {
+            --primary: #0071e3;
+            --primary-dark: #0051a2;
+            --secondary: #86868b;
+            --accent: #ac39ff;
+            --success: #29d344;
+            --warning: #ffd60a;
+            --danger: #ff453a;
+            --black: #1d1d1f;
+            --white: #ffffff;
+            --gray-50: #f5f5f7;
+            --gray-100: #e6e6e6;
+            --gray-200: #d2d2d7;
+            --gray-300: #86868b;
+            --header-height: 44px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+        }
+
+        /* Reset e Bases */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: calc(var(--header-height) + 20px);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.5;
+            color: var(--black);
+            background: var(--white);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Tipografia */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            letter-spacing: -0.02em;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1.5rem;
+        }
+
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--gray-300);
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: var(--header-height);
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: saturate(180%) blur(20px);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 max(5vw, 1rem);
+            z-index: 100;
+            transition: var(--transition);
+        }
+
+        .header.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: var(--shadow);
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--black);
+            text-decoration: none;
+        }
+
+        .nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: var(--gray-300);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--primary);
+            transform: scaleX(0);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .nav-link:hover::after {
+            transform: scaleX(1);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: calc(var(--header-height) + 2rem) 1rem 4rem;
+            background: linear-gradient(135deg, var(--gray-50) 0%, var(--white) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('/api/placeholder/1920/1080') center/cover no-repeat;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            background: var(--accent);
+            color: var(--white);
+            border-radius: 100px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            animation: fadeIn 1s ease;
+        }
+
+        .hero-title {
+            margin-bottom: 1.5rem;
+            animation: fadeUp 1s ease 0.2s backwards;
+        }
+
+        .hero-description {
+            font-size: clamp(1.125rem, 2vw, 1.5rem);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            animation: fadeUp 1s ease 0.4s backwards;
+        }
+
+        /* Estatísticas */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 2rem;
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--gray-300);
+            font-size: 0.875rem;
+        }
+
+        /* Seções */
+        .section {
+            padding: 6rem 1rem;
+        }
+
+        .section-dark {
+            background: var(--gray-50);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Cards */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minnum(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        /* Metodologia */
+        .methodology-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .step-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-weight: 600;
+        }
+
+        /* Resultados */
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .result-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .result-icon {
+            font-size: 2.5rem;
+            color: var(--success);
+            margin-bottom: 1rem;
+        }
+
+        /* Contato */
+        .contact-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            padding: 6rem 1rem;
+            text-align: center;
+        }
+
+        .contact-title {
+            color: var(--white);
+        }
+
+        .contact-description {
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Botões */
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 2rem;
+            border-radius: 100px;
+            font-size: 1rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+        }
+
+        .button-primary {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .button-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .button-white {
+            background: var(--white);
+            color: var(--primary);
+        }
+
+        .button-white:hover {
+            background: var(--gray-100);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--black);
+            color: var(--white);
+            padding: 4rem 1rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-column h4 {
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .footer-link {
+            color: var(--gray-300);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .footer-link:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--gray-300);
+            margin-top: 2rem;
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--gray-300);
+        }
+
+        /* Animações */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+            
+            .mobile-menu-button {
+                display: block;
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-badge {
+                font-size: 0.75rem;
+            }
+
+            .button {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
-  <!-- HEADER -->
-  <header id="header">
-    <div class="logo">Mcastro Consultoria</div>
-    <nav>
-      <ul>
-        <li><a href="#introducao">Introdução</a></li>
-        <li><a href="#objetivos">Objetivos</a></li>
-        <li><a href="#metodologia">Metodologia</a></li>
-        <li><a href="#plano-de-acao">Plano de Ação</a></li>
-        <li><a href="#resultados">Resultados</a></li>
-      </ul>
-    </nav>
-  </header>
-  
-  <main>
-    <!-- SEÇÃO HERO -->
-    <section class="hero" id="home">
-      <div class="hero-content">
-        <h1>Assistência Técnica para Cultivo de Maracujá</h1>
-        <p>Consultoria Agronômica Especializada para otimizar processos produtivos e promover sustentabilidade.</p>
-        <button onclick="scrollToSection('introducao')">Saiba Mais</button>
-        <div class="features">
-          <div class="feature">
-            <i class="fa-solid fa-chart-line"></i>
-            <h4>Produtividade</h4>
-            <p>Maximize o rendimento por hectare.</p>
-          </div>
-          <div class="feature">
-            <i class="fa-solid fa-leaf"></i>
-            <h4>Sustentabilidade</h4>
-            <p>Métodos ecológicos e inovadores.</p>
-          </div>
-          <div class="feature">
-            <i class="fa-solid fa-tools"></i>
-            <h4>Suporte Técnico</h4>
-            <p>Acompanhamento contínuo e especializado.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-    <!-- SEÇÃO: INTRODUÇÃO -->
-    <section id="introducao">
-      <h2><i class="fa-solid fa-info-circle"></i> Introdução</h2>
-      <div class="section-content">
-        <p><strong>Objetivo Geral do Projeto:</strong> Desenvolver e implementar uma consultoria agronômica especializada para o cultivo de maracujá, otimizando os processos produtivos, aumentando a produtividade e promovendo sustentabilidade econômica e ambiental para os produtores.</p>
-        <p><strong>Importância da Consultoria Agronômica:</strong></p>
-        <ul>
-          <li><strong>Melhoria na Produtividade:</strong> Aplicação de práticas técnicas para maximizar o rendimento por hectare.</li>
-          <li><strong>Manejo Eficiente:</strong> Adequação do manejo agrícola com base em análises de solo, clima e escolha de cultivares adaptadas.</li>
-          <li><strong>Sustentabilidade:</strong> Adoção de métodos de cultivo que promovam a preservação dos recursos naturais e redução do impacto ambiental.</li>
-          <li><strong>Capacitação dos Produtores:</strong> Transferência de conhecimentos técnicos para embasar decisões ao longo do ciclo produtivo.</li>
-        </ul>
-      </div>
-    </section>
-    
-    <!-- SEÇÃO: OBJETIVOS ESPECÍFICOS -->
-    <section id="objetivos">
-      <h2><i class="fa-solid fa-bullseye"></i> Objetivos Específicos</h2>
-      <div class="section-content">
-        <p><strong>Seleção da Área de Plantio:</strong> Identificar e avaliar regiões com clima, topografia e histórico favoráveis ao cultivo de maracujá.</p>
-        <p><strong>Análise de Solo:</strong> Coletar e analisar parâmetros essenciais (pH, nutrientes, matéria orgânica, etc.) para definir correções e adubações.</p>
-        <p><strong>Escolha das Cultivares:</strong> Selecionar variedades de maracujá com alta produtividade, resistência e adaptação regional.</p>
-        <p><strong>Definição da Época e Espaçamento de Plantio:</strong> Determinar o período ideal e o espaçamento adequado para otimizar a produção.</p>
-        <p><strong>Manejo de Pragas e Doenças:</strong> Implementar um controle fitossanitário integrado, com monitoramento e ações preventivas.</p>
-        <p><strong>Suporte Técnico Continuado:</strong> Acompanhar os produtores durante o ciclo, oferecendo orientações e ajustes técnicos.</p>
-      </div>
-    </section>
-    
-    <!-- SEÇÃO: METODOLOGIA -->
-    <section id="metodologia">
-      <h2><i class="fa-solid fa-flask"></i> Metodologia</h2>
-      <div class="section-content">
-        <h3>Análise da Área de Cultivo</h3>
-        <p><strong>Critérios para Seleção:</strong></p>
-        <ul>
-          <li><strong>Clima:</strong> Análise de chuvas, temperatura e índices pluviométricos.</li>
-          <li><strong>Topografia:</strong> Avaliação da inclinação, drenagem e facilidade de manejo.</li>
-          <li><strong>Histórico de Uso:</strong> Verificação da produtividade anterior e possíveis problemas.</li>
-        </ul>
-        <h3>Coleta e Análise de Solo</h3>
-        <p><strong>Processo Técnico de Amostragem:</strong></p>
-        <ul>
-          <li>Definir pontos representativos para coleta de amostras.</li>
-          <li>Coletar amostras em profundidades padronizadas (0-20 cm ou conforme recomendação).</li>
-        </ul>
-        <p><strong>Parâmetros Avaliados:</strong></p>
-        <ul>
-          <li>pH e teores de macro/micronutrientes (N, P, K, Ca, Mg, etc.).</li>
-          <li>Matéria orgânica e capacidade de troca catiônica (CTC).</li>
-        </ul>
-        <h3>Escolha das Cultivares</h3>
-        <p><strong>Critérios de Seleção:</strong></p>
-        <ul>
-          <li><strong>Produtividade:</strong> Variedades com histórico de alto rendimento.</li>
-          <li><strong>Resistência:</strong> Cultivares tolerantes a pragas e doenças.</li>
-          <li><strong>Mercado:</strong> Adequação para consumo in natura ou processamento.</li>
-          <li><strong>Adaptação Climática:</strong> Variedades testadas e aprovadas regionalmente.</li>
-        </ul>
-        <h3>Manejo da Cultura</h3>
-        <p><strong>Adubação:</strong> Planejamento com base nas análises de solo e necessidades nutricionais, com cronograma de fertilizações.</p>
-        <p><strong>Irrigação:</strong> Definir o método ideal (gotejamento, aspersão, etc.) e os horários para maximizar a eficiência hídrica.</p>
-        <p><strong>Poda:</strong> Técnicas que promovam a renovação, melhorando a aeração e luminosidade.</p>
-        <p><strong>Controle Fitossanitário:</strong> Programa integrado de manejo de pragas, com monitoramento e uso racional de defensivos.</p>
-        <h3>Monitoramento e Avaliação</h3>
-        <p><strong>Acompanhamento Técnico:</strong> Visitas periódicas para avaliar práticas de manejo e indicadores agronômicos.</p>
-        <p><strong>Indicadores de Sucesso:</strong> Produtividade, qualidade dos frutos, redução de pragas e eficiência no uso de insumos.</p>
-      </div>
-    </section>
-    
-    <!-- SEÇÃO: PLANO DE AÇÃO -->
-    <section id="plano-de-acao">
-      <h2><i class="fa-solid fa-tasks"></i> Plano de Ação</h2>
-      <div class="section-content">
-        <h3>Cronograma de Atividades</h3>
-        <p><strong>Visitas Técnicas:</strong></p>
-        <ul>
-          <li><strong>Iniciação:</strong> Visita semanal nas 2 primeiras semanas pós-implantação.</li>
-          <li><strong>Manutenção:</strong> Visitas quinzenais nos três primeiros meses, conforme necessidade.</li>
-          <li><strong>Avaliação Sazonal:</strong> Visitas mensais durante a safra para monitoramento dos indicadores.</li>
-        </ul>
-        <h3>Capacitação dos Produtores</h3>
-        <p><strong>Workshops e Treinamentos:</strong> Encontros técnicos para capacitar sobre manejo integrado, análise de solo, irrigação e controle fitossanitário.</p>
-        <p><strong>Material Didático:</strong> Distribuição de apostilas, vídeos e manuais práticos com os tópicos e melhores práticas.</p>
-        <p><strong>Plataforma de Suporte:</strong> Criação de um canal (ex.: WhatsApp ou fórum) para dúvidas e troca de experiências.</p>
-      </div>
-    </section>
-    
-    <!-- SEÇÃO: RESULTADOS E INDICADORES -->
-    <section id="resultados">
-      <h2><i class="fa-solid fa-chart-line"></i> Resultados e Indicadores de Sucesso</h2>
-      <div class="section-content">
-        <h3>Resultados Esperados</h3>
-        <ul>
-          <li><strong>Aumento da Produtividade:</strong> Melhoria no rendimento por hectare e na qualidade dos frutos, aumentando a rentabilidade.</li>
-          <li><strong>Redução de Perdas:</strong> Diminuição significativa da incidência de pragas e doenças, reduzindo perdas.</li>
-          <li><strong>Otimização no Uso de Insumos:</strong> Uso racional e eficiente de fertilizantes e defensivos com base em análises técnicas.</li>
-          <li><strong>Capacitação dos Produtores:</strong> Produtores mais preparados para adotar boas práticas agrícolas.</li>
-        </ul>
-        <h3>Indicadores de Sucesso</h3>
-        <ul>
-          <li><strong>Produtividade:</strong> Medida em kg ou toneladas por hectare, comparando dados pré e pós-implantação.</li>
-          <li><strong>Qualidade dos Frutos:</strong> Parâmetros definidos pelo mercado (tamanho, cor, teor de polpa, etc.).</li>
-          <li><strong>Redução de Pragas/Doenças:</strong> Percentual de diminuição de ocorrências, medido por registros de campo.</li>
-          <li><strong>Uso Eficiente de Insumos:</strong> Relação custo-benefício e diminuição de desperdícios, monitorada por análises técnicas.</li>
-          <li><strong>Satisfação dos Produtores:</strong> Avaliações qualitativas e quantitativas da eficácia da consultoria.</li>
-        </ul>
-      </div>
-    </section>
-  </main>
-  
-  <!-- FOOTER -->
-  <footer>
-    <p>&copy; 2024 Mcastro Consultoria. Todos os direitos reservados.</p>
-  </footer>
-  
-  <!-- ==============================
-       SCRIPTS
-  ============================== -->
-  <script>
-    // Função para rolagem suave para seção
-    function scrollToSection(id) {
-      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
-    }
-    
-    // IntersectionObserver para revelar seções conforme rolagem
-    const sections = document.querySelectorAll('section');
-    const observerOptions = { threshold: 0.2 };
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, observerOptions);
-    
-    sections.forEach(section => observer.observe(section));
-    
-    // Header shrink ao rolar
-    const header = document.getElementById('header');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        header.classList.add('shrink');
-      } else {
-        header.classList.remove('shrink');
-      }
-    });
-  </script>
-</body>
-</html>
+    <!-- Header -->
+    <header class="header" id="header">
+        <a href="#" class="logo">Mcastro</a>
+        <nav class="nav">
+            <a href="#sobre" class="nav-link">Sobre</a>
+            <a href="#metodologia" class="nav-link">Metodologia</a>
+            <a href="#servicos" class="nav-link">Serviços</a>
+            <a href="#resultados" class="nav-link">Resultados</a>
+            <a href="#contato" class="nav-link">Contato</a>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class</antArtifact>

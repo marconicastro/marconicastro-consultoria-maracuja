@@ -158,7 +158,7 @@
             overflow: hidden;
         }
 
-        /* Atualização: Inserção da imagem de fundo "campo maracuja.jpg" na seção Hero */
+        /* Alteração aplicada: Utilização de background-blend-mode para mesclar a imagem de fundo */
         .hero::before {
             content: '';
             position: absolute;
@@ -167,7 +167,8 @@
             right: 0;
             bottom: 0;
             background: url('images/campo%20maracuja.jpg') center/cover no-repeat;
-            opacity: 0.1;
+            opacity: 0.3;
+            background-blend-mode: multiply;
             z-index: 0;
         }
 

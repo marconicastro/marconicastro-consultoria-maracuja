@@ -3,8 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Consultoria especializada em cultivo de maracujá: análise técnica, otimização de produção e suporte contínuo para maximizar seus resultados.">
-  <meta name="keywords" content="consultoria maracujá, assistência técnica agrícola, produção maracujá, análise solo, manejo integrado, cultivo sustentável">
   <title>Mcastro Consultoria | Especialistas em Cultivo de Maracujá</title>
 
   <!-- Preload recursos críticos -->
@@ -17,37 +15,24 @@
 
   <style>
     /* 
-      Estilo inspirado no design minimalista e “clean” 
-      característico de páginas da Apple. 
-      - Layout com bastante espaço em branco
-      - Tipografia limpa e grande
-      - Cores pontuais e suaves
-      - Sombras discretas
+      Estilo minimalista / Apple-like
+      com menu hambúrguer no mobile
     */
 
     :root {
-      /* Cores principais */
-      --primary: #0071e3;        /* Azul característico Apple-like */
-      --primary-dark: #0051a2;   /* Versão mais escura do azul */
-      --secondary: #86868b;      /* Cinza intermediário */
-      --accent: #ac39ff;         /* Você pode trocar ou remover se quiser */
-      --success: #29d344;
-      --warning: #ffd60a;
-      --danger: #ff453a;
-
-      /* Básico */
+      --primary: #0071e3;       
+      --primary-dark: #0051a2;  
+      --secondary: #86868b;     
       --black: #1d1d1f;
       --white: #ffffff;
-      --gray-50: #f9f9fb;        /* Fundo mais claro */
+      --gray-50: #f9f9fb;       
       --gray-100: #e6e6e6;
       --gray-200: #d2d2d7;
       --gray-300: #86868b;
 
-      /* Dimensões */
-      --header-height: 60px;     /* Aumentei um pouco o header para dar “respiro” */
+      --header-height: 60px;     
       --transition: all 0.3s ease;
 
-      /* Sombras */
       --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
       --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.07);
       --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
@@ -79,23 +64,19 @@
       line-height: 1.2;
       color: var(--black);
     }
-
     h1 {
       font-size: clamp(2.2rem, 5vw, 3.5rem);
       letter-spacing: -0.02em;
       margin-bottom: 1rem;
     }
-
     h2 {
       font-size: clamp(1.8rem, 4vw, 2.8rem);
       margin-bottom: 1.5rem;
     }
-
     h3 {
       font-size: clamp(1.4rem, 3vw, 2rem);
       margin-bottom: 1rem;
     }
-
     p {
       margin-bottom: 1rem;
       color: var(--gray-300);
@@ -105,9 +86,7 @@
     /* Header */
     .header {
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
+      top: 0; left: 0; right: 0;
       height: var(--header-height);
       background: rgba(255, 255, 255, 0.9);
       backdrop-filter: saturate(150%) blur(10px);
@@ -116,7 +95,6 @@
       justify-content: space-between;
       padding: 0 max(5vw, 1rem);
       z-index: 100;
-      transition: var(--transition);
       box-shadow: var(--shadow-sm);
     }
 
@@ -132,19 +110,33 @@
       text-decoration: none;
     }
 
+    /* Botão hambúrguer (mobile) */
+    .hamburger {
+      display: none; /* Só mostraremos no mobile */
+      background: none;
+      border: none;
+      font-size: 1.4rem;
+      color: var(--black);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .hamburger:hover {
+      color: var(--primary);
+    }
+
+    /* Menu principal */
     .nav {
       display: flex;
       gap: 2rem;
+      align-items: center;
+      transition: var(--transition);
     }
-
     .nav-link {
       color: var(--gray-300);
       text-decoration: none;
       font-size: 0.95rem;
       transition: var(--transition);
-      position: relative;
     }
-
     .nav-link:hover {
       color: var(--primary);
     }
@@ -162,13 +154,12 @@
       overflow: hidden;
     }
 
-    /* Imagem de fundo mais sutil, sem blend-mode forte */
     .hero::before {
       content: '';
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
       background: url('images/istockphoto-485963940-612x612.jpg') center/cover no-repeat;
-      opacity: 0.25;  /* Mais sutil */
+      opacity: 0.55;
       z-index: 0;
     }
 
@@ -192,11 +183,9 @@
       margin-bottom: 1.5rem;
       box-shadow: var(--shadow-sm);
     }
-
     .hero-title {
       margin-bottom: 1rem;
     }
-
     .hero-description {
       font-size: 1.2rem;
       max-width: 600px;
@@ -204,23 +193,22 @@
       color: var(--secondary);
     }
 
-    /* Seção "Sobre" */
+    /* Seções gerais */
     .section {
       padding: 6rem 1rem;
     }
-
     .section .container {
       max-width: 1200px;
       margin: 0 auto;
     }
 
+    /* Cards */
     .cards-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
       margin-top: 3rem;
     }
-
     .card {
       background: var(--white);
       border-radius: 14px;
@@ -230,12 +218,10 @@
       overflow: hidden;
       box-shadow: var(--shadow-sm);
     }
-
     .card:hover {
       transform: translateY(-3px);
       box-shadow: var(--shadow-lg);
     }
-
     .card-icon {
       font-size: 2rem;
       color: var(--primary);
@@ -246,14 +232,12 @@
     .section-dark {
       background: var(--gray-50);
     }
-
     .methodology-steps {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 2rem;
       margin-top: 3rem;
     }
-
     .step-card {
       background: var(--white);
       border-radius: 14px;
@@ -262,12 +246,10 @@
       transition: var(--transition);
       box-shadow: var(--shadow-sm);
     }
-
     .step-card:hover {
       transform: translateY(-3px);
       box-shadow: var(--shadow);
     }
-
     .step-number {
       width: 40px;
       height: 40px;
@@ -281,9 +263,6 @@
       font-weight: 600;
     }
 
-    /* Seção Serviços */
-    /* (Mesma estrutura de cards-grid) */
-
     /* Seção Resultados */
     .stats {
       display: grid;
@@ -296,18 +275,15 @@
       border-radius: 14px;
       box-shadow: var(--shadow-sm);
     }
-
     .stat-item {
       text-align: center;
     }
-
     .stat-value {
       font-size: 2.5rem;
       font-weight: 700;
       color: var(--primary);
       margin-bottom: 0.5rem;
     }
-
     .stat-label {
       color: var(--gray-300);
       font-size: 0.9rem;
@@ -315,18 +291,15 @@
 
     /* Seção Contato */
     .contact-section {
-      /* Em vez de gradient forte, vamos usar um leve degradê */
       background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
       color: var(--white);
       padding: 6rem 1rem;
       text-align: center;
     }
-
     .contact-title {
       color: var(--white);
       margin-bottom: 1rem;
     }
-
     .contact-description {
       color: rgba(255, 255, 255, 0.9);
       max-width: 600px;
@@ -348,24 +321,20 @@
       cursor: pointer;
       border: none;
     }
-
     .button-primary {
       background: var(--primary);
       color: var(--white);
       box-shadow: var(--shadow-sm);
     }
-
     .button-primary:hover {
       background: var(--primary-dark);
       transform: translateY(-2px);
     }
-
     .button-white {
       background: var(--white);
       color: var(--primary);
       box-shadow: var(--shadow-sm);
     }
-
     .button-white:hover {
       background: var(--gray-100);
       transform: translateY(-2px);
@@ -377,7 +346,6 @@
       color: var(--white);
       padding: 4rem 1rem;
     }
-
     .footer-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -385,12 +353,10 @@
       max-width: 1200px;
       margin: 0 auto;
     }
-
     .footer-column h4 {
       color: var(--white);
       margin-bottom: 1rem;
     }
-
     .footer-link {
       color: var(--gray-300);
       text-decoration: none;
@@ -398,11 +364,9 @@
       margin-bottom: 0.5rem;
       transition: var(--transition);
     }
-
     .footer-link:hover {
       color: var(--white);
     }
-
     .footer-bottom {
       border-top: 1px solid var(--gray-300);
       margin-top: 2rem;
@@ -411,19 +375,49 @@
       color: var(--gray-300);
     }
 
-    /* Media Queries */
+    /* -- MOBILE MENU -- */
     @media (max-width: 768px) {
+      /* Mostra o botão hambúrguer e esconde o menu */
+      .hamburger {
+        display: block;
+      }
       .nav {
-        display: none; /* Exemplo: aqui você poderia implementar um menu hambúrguer */
+        display: none; /* Esconde o menu por padrão no mobile */
+        position: absolute;
+        top: var(--header-height);
+        right: 0;
+        background: var(--white);
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem 2rem;
+        box-shadow: var(--shadow-sm);
+        border-radius: 0 0 0 8px;
+        /* Você pode fazer um slide ou dropdown. Aqui é algo simples. */
+      }
+      .nav.active {
+        display: flex; /* Ao clicar no hambúrguer, aparece o menu */
+      }
+      .nav-link {
+        color: var(--black); /* Ajusta a cor para ficar visível no fundo branco */
+        font-size: 1rem;
       }
     }
 
-    @media (max-width: 480px) {
-      .hero-description {
-        font-size: 1rem;
+    @media (min-width: 769px) {
+      /* Em telas maiores, o hambúrguer some e o menu fica normal */
+      .hamburger {
+        display: none;
       }
-      .button {
-        width: 100%;
+      .nav {
+        display: flex; /* Mantém o menu tradicional */
+        position: static; /* Remove posicionamento absoluto */
+        background: none;
+        box-shadow: none;
+        flex-direction: row;
+        padding: 0;
+      }
+      .nav.active {
+        display: flex;
       }
     }
   </style>
@@ -433,7 +427,14 @@
   <!-- Header -->
   <header class="header" id="header">
     <a href="#" class="logo">Mcastro</a>
-    <nav class="nav">
+    
+    <!-- Botão hambúrguer (só aparece no mobile) -->
+    <button class="hamburger" aria-label="Abrir menu">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Menu principal -->
+    <nav class="nav" id="nav">
       <a href="#sobre" class="nav-link">Sobre</a>
       <a href="#metodologia" class="nav-link">Metodologia</a>
       <a href="#servicos" class="nav-link">Serviços</a>
@@ -641,7 +642,7 @@
     </div>
   </footer>
 
-  <!-- Exemplo de script para “header.scrolled” (opcional) -->
+  <!-- Script para o efeito "header.scrolled" e o menu hambúrguer -->
   <script>
     const header = document.getElementById('header');
     window.addEventListener('scroll', () => {
@@ -651,7 +652,14 @@
         header.classList.remove('scrolled');
       }
     });
-  </script>
 
+    // Menu hambúrguer
+    const hamburger = document.querySelector('.hamburger');
+    const nav = document.querySelector('#nav');
+
+    hamburger.addEventListener('click', () => {
+      nav.classList.toggle('active');
+    });
+  </script>
 </body>
-          </html>
+  </html>

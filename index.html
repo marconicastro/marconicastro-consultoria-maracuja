@@ -15,8 +15,8 @@
 
   <style>
     /* 
-      Estilo minimalista / Apple-like
-      com menu hambúrguer no mobile
+      Estilo minimalista / Apple-like 
+      + Animações e Parallax sutil
     */
 
     :root {
@@ -56,6 +56,7 @@
       color: var(--black);
       background: var(--white);
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden; /* Evita scroll horizontal em animações */
     }
 
     /* Tipografia */
@@ -141,7 +142,7 @@
       color: var(--primary);
     }
 
-    /* Hero Section */
+    /* HERO */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -149,18 +150,19 @@
       justify-content: center;
       text-align: center;
       padding: calc(var(--header-height) + 2rem) 1rem 4rem;
-      background: var(--gray-50);
       position: relative;
       overflow: hidden;
     }
 
-    .hero::before {
-      content: '';
+    /* Removemos o ::before e colocamos uma div interna .hero-bg 
+       para facilitar o Parallax via JS */
+    .hero-bg {
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
       background: url('images/istockphoto-485963940-612x612.jpg') center/cover no-repeat;
-      opacity: 0.55;
       z-index: 0;
+      /* Ajuste a opacidade conforme quiser */
+      opacity: 0.3; 
     }
 
     .hero-content {
@@ -217,6 +219,7 @@
       position: relative;
       overflow: hidden;
       box-shadow: var(--shadow-sm);
+      /* NOVO: classe de animação ao rolar */
     }
     .card:hover {
       transform: translateY(-3px);
@@ -278,6 +281,7 @@
     .stat-item {
       text-align: center;
     }
+    /* Alterado para "data-target" e contagem via JS */
     .stat-value {
       font-size: 2.5rem;
       font-weight: 700;
@@ -382,7 +386,7 @@
         display: block;
       }
       .nav {
-        display: none; /* Esconde o menu por padrão no mobile */
+        display: none; 
         position: absolute;
         top: var(--header-height);
         right: 0;
@@ -392,25 +396,22 @@
         padding: 1rem 2rem;
         box-shadow: var(--shadow-sm);
         border-radius: 0 0 0 8px;
-        /* Você pode fazer um slide ou dropdown. Aqui é algo simples. */
       }
       .nav.active {
-        display: flex; /* Ao clicar no hambúrguer, aparece o menu */
+        display: flex; 
       }
       .nav-link {
-        color: var(--black); /* Ajusta a cor para ficar visível no fundo branco */
+        color: var(--black); 
         font-size: 1rem;
       }
     }
-
     @media (min-width: 769px) {
-      /* Em telas maiores, o hambúrguer some e o menu fica normal */
       .hamburger {
         display: none;
       }
       .nav {
-        display: flex; /* Mantém o menu tradicional */
-        position: static; /* Remove posicionamento absoluto */
+        display: flex; 
+        position: static; 
         background: none;
         box-shadow: none;
         flex-direction: row;
@@ -419,6 +420,17 @@
       .nav.active {
         display: flex;
       }
+    }
+
+    /* NOVO: Classes para animação de scroll (fade-in) */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: 0.6s ease;
+    }
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
     }
   </style>
 </head>
@@ -445,18 +457,21 @@
 
   <!-- Hero -->
   <section class="hero" id="hero">
+    <!-- NOVO: Div para parallax -->
+    <div class="hero-bg"></div>
+
     <div class="hero-content">
-      <div class="hero-badge">Bem-vindo</div>
-      <h1 class="hero-title">Especialistas em Cultivo de Maracujá</h1>
-      <p class="hero-description">
+      <div class="hero-badge fade-in">Bem-vindo</div> <!-- fade-in -->
+      <h1 class="hero-title fade-in">Especialistas em Cultivo de Maracujá</h1> <!-- fade-in -->
+      <p class="hero-description fade-in">
         Maximize sua produção com nossa consultoria técnica especializada.
       </p>
-      <a href="#contato" class="button button-primary">Fale Conosco</a>
+      <a href="#contato" class="button button-primary fade-in" style="margin-top: 1rem;">Fale Conosco</a>
     </div>
   </section>
 
   <!-- Seção Sobre -->
-  <section id="sobre" class="section">
+  <section id="sobre" class="section fade-in">
     <div class="container">
       <h2>Sobre Nós</h2>
       <p>
@@ -467,7 +482,7 @@
       </p>
 
       <div class="cards-grid">
-        <div class="card">
+        <div class="card fade-in">
           <i class="fas fa-leaf card-icon"></i>
           <h3>Expertise Agrícola</h3>
           <p>
@@ -475,7 +490,7 @@
             tecnologia e práticas sustentáveis.
           </p>
         </div>
-        <div class="card">
+        <div class="card fade-in">
           <i class="fas fa-chart-line card-icon"></i>
           <h3>Resultados Comprovados</h3>
           <p>
@@ -483,7 +498,7 @@
             proporcionando maior rentabilidade aos produtores.
           </p>
         </div>
-        <div class="card">
+        <div class="card fade-in">
           <i class="fas fa-cogs card-icon"></i>
           <h3>Suporte Contínuo</h3>
           <p>
@@ -496,7 +511,7 @@
   </section>
 
   <!-- Seção Metodologia -->
-  <section id="metodologia" class="section section-dark">
+  <section id="metodologia" class="section section-dark fade-in">
     <div class="container">
       <h2>Metodologia</h2>
       <p>
@@ -504,7 +519,7 @@
         de cada etapa do cultivo às condições específicas de cada região.
       </p>
       <div class="methodology-steps">
-        <div class="step-card">
+        <div class="step-card fade-in">
           <div class="step-number">1</div>
           <h3>Análise do Solo</h3>
           <p>
@@ -512,7 +527,7 @@
             matéria orgânica) para definir as correções e adubações necessárias.
           </p>
         </div>
-        <div class="step-card">
+        <div class="step-card fade-in">
           <div class="step-number">2</div>
           <h3>Manejo Integrado</h3>
           <p>
@@ -520,7 +535,7 @@
             sempre com foco na sustentabilidade e na adaptação ao clima local.
           </p>
         </div>
-        <div class="step-card">
+        <div class="step-card fade-in">
           <div class="step-number">3</div>
           <h3>Monitoramento</h3>
           <p>
@@ -533,7 +548,7 @@
   </section>
 
   <!-- Seção Serviços -->
-  <section id="servicos" class="section">
+  <section id="servicos" class="section fade-in">
     <div class="container">
       <h2>Serviços</h2>
       <p>
@@ -541,7 +556,7 @@
         desde a análise inicial até a comercialização.
       </p>
       <div class="cards-grid">
-        <div class="card">
+        <div class="card fade-in">
           <i class="fas fa-seedling card-icon"></i>
           <h3>Consultoria Técnica</h3>
           <p>
@@ -549,14 +564,14 @@
             para maximizar a produtividade.
           </p>
         </div>
-        <div class="card">
+        <div class="card fade-in">
           <i class="fas fa-flask card-icon"></i>
           <h3>Laboratório</h3>
           <p>
             Realizamos testes precisos de solo e foliares para identificar deficiências nutricionais e orientar a adubação correta das plantas.
           </p>
         </div>
-        <div class="card">
+        <div class="card fade-in">
           <i class="fas fa-truck card-icon"></i>
           <h3>Logística</h3>
           <p>
@@ -569,20 +584,21 @@
   </section>
 
   <!-- Seção Resultados -->
-  <section id="resultados" class="section">
+  <section id="resultados" class="section fade-in">
     <div class="container">
       <h2>Resultados</h2>
       <div class="stats">
+        <!-- Adicionamos data-target para fazer contagem -->
         <div class="stat-item">
-          <div class="stat-value">150+</div>
+          <div class="stat-value" data-target="150">0</div>
           <div class="stat-label">Clientes Satisfeitos</div>
         </div>
         <div class="stat-item">
-          <div class="stat-value">200%</div>
-          <div class="stat-label">Aumento de Produtividade</div>
+          <div class="stat-value" data-target="200">0</div>
+          <div class="stat-label">Aumento de Produtividade (%)</div>
         </div>
         <div class="stat-item">
-          <div class="stat-value">50+</div>
+          <div class="stat-value" data-target="50">0</div>
           <div class="stat-label">Anos de Experiência</div>
         </div>
       </div>
@@ -590,7 +606,7 @@
   </section>
 
   <!-- Seção Contato -->
-  <section id="contato" class="contact-section">
+  <section id="contato" class="contact-section fade-in">
     <div class="container">
       <h2 class="contact-title">Entre em Contato</h2>
       <p class="contact-description">
@@ -604,12 +620,12 @@
         <i class="fas fa-envelope"></i>
         E-mail: <a href="mailto:marconi.castro.mc@gmail.com" style="color: #fff; text-decoration: underline;">marconi.castro.mc@gmail.com</a>
       </p>
-      <a href="mailto:marconi.castro.mc@gmail.com" class="button button-white">Enviar Email</a>
+      <a href="mailto:marconi.castro.mc@gmail.com" class="button button-white" style="margin-top: 1rem;">Enviar Email</a>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="footer">
+  <footer class="footer fade-in">
     <div class="container footer-grid">
       <div class="footer-column">
         <h4>Empresa</h4>
@@ -642,7 +658,13 @@
     </div>
   </footer>
 
-  <!-- Script para o efeito "header.scrolled" e o menu hambúrguer -->
+  <!-- Script para:
+       1) "header.scrolled"
+       2) menu hambúrguer
+       3) parallax da .hero-bg
+       4) animações fade-in (Intersection Observer)
+       5) contagem dos números (counter up)
+  -->
   <script>
     const header = document.getElementById('header');
     window.addEventListener('scroll', () => {
@@ -656,10 +678,13 @@
     // Menu hambúrguer
     const hamburger = document.querySelector('.hamburger');
     const nav = document.querySelector('#nav');
-
     hamburger.addEventListener('click', () => {
       nav.classList.toggle('active');
     });
-  </script>
-</body>
-  </html>
+
+    /* NOVO: Parallax da .hero-bg */
+    const heroBg = document.querySelector('.hero-bg');
+    window.addEventListener('scroll', () => {
+      // Ajuste o valor 0.3 para controlar a intensidade
+      const offset = window.scrollY * 0.3;
+      heroBg.style.transform = `tr
